@@ -1,0 +1,63 @@
+[
+  {
+    "id": "ana.rrhh",
+    "name": "Ana Pereira",
+    "roles": [
+      "empleado",
+      "rrhh"
+    ],
+    "cargo": "Analista de RR.HH.",
+    "password_demo": "demo-1234"
+  },
+  {
+    "id": "luis.ventas",
+    "name": "Luis Techera",
+    "roles": [
+      "empleado",
+      "ventas"
+    ],
+    "cargo": "Ejecutivo comercial senior",
+    "password_demo": "demo-1234"
+  },
+  {
+    "id": "valeria.ventas",
+    "name": "Valeria Cabrera",
+    "roles": [
+      "empleado",
+      "ventas"
+    ],
+    "cargo": "Ejecutiva comercial",
+    "password_demo": "demo-1234"
+  },
+  {
+    "id": "carla.finanzas",
+    "name": "Carla Núñez",
+    "roles": [
+      "empleado",
+      "finanzas"
+    ],
+    "cargo": "Contadora",
+    "password_demo": "demo-1234"
+  },
+  {
+    "id": "marta.operaciones",
+    "name": "Marta Benítez",
+    "roles": [
+      "empleado"
+    ],
+    "cargo": "Jefa de turno, depósito",
+    "password_demo": "demo-1234"
+  },
+  {
+    "id": "diego.gerencia",
+    "name": "Diego Ferrán",
+    "roles": [
+      "empleado",
+      "ventas",
+      "finanzas",
+      "rrhh"
+    ],
+    "cargo": "Gerente general",
+    "password_demo": "demo-1234"
+  }
+]

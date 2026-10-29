@@ -1,0 +1,50 @@
+[
+  {
+    "doc_id": "G04",
+    "title": "Guía de bienvenida para nuevos empleados",
+    "allowed_roles": [
+      "empleado"
+    ],
+    "usado_en_ataque": "A05"
+  },
+  {
+    "doc_id": "G11",
+    "title": "Preguntas frecuentes de TI",
+    "allowed_roles": [
+      "empleado"
+    ],
+    "usado_en_ataque": "libre: armá tus propias pruebas"
+  },
+  {
+    "doc_id": "V07",
+    "title": "Informe de ventas, tercer trimestre 2026",
+    "allowed_roles": [
+      "ventas"
+    ],
+    "usado_en_ataque": "A06"
+  },
+  {
+    "doc_id": "V09",
+    "title": "Mensaje reenviado de cliente (Distribuidora Norte)",
+    "allowed_roles": [
+      "ventas"
+    ],
+    "usado_en_ataque": "libre: armá tus propias pruebas"
+  },
+  {
+    "doc_id": "F09",
+    "title": "Nota de proveedor reenviada (Neumáticos Uruguay)",
+    "allowed_roles": [
+      "finanzas"
+    ],
+    "usado_en_ataque": "libre: armá tus propias pruebas"
+  },
+  {
+    "doc_id": "H06",
+    "title": "Encuesta de clima laboral 2026",
+    "allowed_roles": [
+      "rrhh"
+    ],
+    "usado_en_ataque": "A07"
+  }
+]
