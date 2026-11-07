@@ -45,6 +45,17 @@ class User(Base):
         nullable=False
     )
 
+    job_title: Mapped[str | None] = mapped_column(
+        String(100),
+        nullable=True
+    )
+
+    is_visitor: Mapped[bool] = mapped_column(
+        Boolean,
+        default=False,
+        nullable=False
+    )
+
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         default=lambda: datetime.now(timezone.utc),
