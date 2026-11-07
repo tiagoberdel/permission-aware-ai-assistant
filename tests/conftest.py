@@ -7,8 +7,6 @@ from sqlalchemy.orm import sessionmaker
 from app.config import settings
 from app.db import Base
 
-import app.models
-
 @pytest.fixture(scope="session")
 def test_engine():
     test_url = make_url(settings.DATABASE_URL).set(
