@@ -1,71 +1,138 @@
-# Secure Permission-Aware AI Assistant
+# Andino — Secure Permission-Aware AI Assistant
 
-An end-to-end AI engineering project: an internal assistant that answers questions over company documents while enforcing role-based access control (RBAC), tested against leaks and prompt-injection attacks.
+Andino is a backend project for an internal AI assistant designed to answer questions about company documents while respecting role-based access control (RBAC).
 
-## Problem
+The main goal is to ensure that users can only retrieve information from documents they are authorized to access. Access control must be enforced by the backend, before retrieved content reaches the language model.
 
-Internal AI assistants can leak documents that a user is not allowed to see, even when they are tricked into it. Here, permissions are enforced in the server layer, not in the prompt: a document the user cannot access never reaches the model.
+## Project Goals
 
-## Data
+- Build an authenticated API for an internal assistant.
+- Model users, roles, and document permissions.
+- Enforce document-level access control on the server side.
+- Integrate document retrieval with an AI agent.
+- Evaluate the system against unauthorized access attempts, prompt injection, and information leakage.
 
-All data is synthetic: an AI-generated set of 40 documents from a fictional company (written in Spanish), with 6 test users, canary facts, and ground-truth access rules. See [`data/`](data/).
+## Planned Architecture
 
-## Stack
+The planned architecture consists of:
 
-**V1**
-- FastAPI: API and authentication
-- PostgreSQL: users and audit log
-- Chroma: vector store with metadata filters
-- FastMCP: tool server that exposes retrieval to the agent
-- LangChain: agent loop
-- pytest: access and security tests
-- Docker: everything runs in containers
+- **FastAPI:** API and application layer.
+- **PostgreSQL:** Persistent storage for users, roles, and audit logs.
+- **SQLAlchemy and Alembic:** ORM and database migrations.
+- **Chroma:** Vector storage for document retrieval.
+- **FastMCP:** MCP server exposing retrieval capabilities.
+- **LangChain:** Agent orchestration and tool integration.
+- **Pytest:** Automated tests and security evaluation.
+- **Langfuse:** Planned tracing and observability.
 
-**Planned:** Langfuse (tracing and evaluation), cloud deployment.
+The retrieval layer will apply permission filters server-side. The language model will not be responsible for deciding whether a user is authorized to access a document.
 
-## Access model
+## Access Control Model
 
-- Every authenticated user has the `employee` role. Other roles: `sales`, `finance`, `hr`. A user can hold several roles (the general manager holds all of them).
-- A user can see a document if they share at least one role with its `allowed_roles`.
-- Sensitivity levels: `public`, `internal`, `confidential`.
+Andino uses four predefined roles:
 
-| Document | Level | Employee | Sales | Finance | HR |
-|---|---|---|---|---|---|
-| Annual leave policy | public | ✓ | ✓ | ✓ | ✓ |
-| Rate card | internal | - | ✓ | - | - |
-| Commission plan | confidential | - | ✓ | - | - |
-| Margin by business line | confidential | - | - | ✓ | - |
-| Salary scale | confidential | - | - | - | ✓ |
-| Sales quotas and commercial budget | confidential | - | ✓ | ✓ | - |
-| 2027 salary adjustment plan | confidential | - | - | ✓ | ✓ |
+| Role | Description |
+|---|---|
+| `employee` | General employee access |
+| `sales` | Sales department access |
+| `finance` | Finance department access |
+| `hr` | Human Resources access |
 
-## Security design
+- Every internal user has the `employee` role.
+- Internal users may have multiple roles.
+- The general manager has all four roles.
+- The external Visitor identity has no internal roles and is explicitly identified as a visitor.
 
-- Identity comes from the authenticated session, never from the prompt or from arguments the model fills in.
-- The retrieval filter is applied server-side, before anything reaches the model.
-- When access is denied, the assistant answers "I couldn't find information about that", so it does not confirm that a document exists.
-- Every request is written to an audit log: who asked what, which documents were retrieved, and the decision.
+A document is accessible when the user's roles intersect with the document's `allowed_roles`.
 
-## Evaluation
+Documents will also have a sensitivity label:
 
-- **Canary facts:** every document contains a unique fake fact. If it appears in a response to an unauthorized user, that is a leak.
-- **Questions:** 30 questions with expected behavior (14 the user may answer, 16 they may not).
-- **Attacks:** 10 attacks across these categories: direct request, role impersonation, authority claim, instruction override, indirect prompt injection (instructions hidden inside documents), obfuscation, inference by aggregation, and existence probing.
-- **Ground truth:** a document × user access matrix.
+- `public`
+- `internal`
+- `confidential`
 
-Metrics: leak rate, false refusals, answer accuracy, existence-leak rate, cost and latency per query.
+Sensitivity labels provide additional document metadata; they do not replace the role-based access check.
 
-Results: _to be added once measured._
+## Security Principles
+
+- Identity is obtained from the authenticated backend session, never from user prompts or model-generated arguments.
+- Authorization is enforced before document content is passed to the language model.
+- Unauthorized documents must not reach the model.
+- Responses to inaccessible information should not reveal whether a document exists or whether access was denied.
+- Requests and retrieval decisions will be recorded for auditing.
+
+## Demo Dataset
+
+The planned demonstration dataset consists of:
+
+- 40 AI-generated documents in Spanish.
+- 6 internal demo users.
+- 1 external Visitor identity.
+- 4 predefined roles.
+- A ground-truth access matrix describing which users can access each document.
+- Unique canary facts in documents to help detect unauthorized information disclosure.
+
+The demo identities will represent different organizational roles and permission combinations.
+
+## Evaluation Plan
+
+The evaluation suite is intended to measure both answer quality and access-control security.
+
+Planned evaluation data:
+
+- 30 questions with expected outcomes:
+  - 14 answerable questions.
+  - 16 questions that should not produce an answer from the available authorized documents.
+- 10 attack scenarios covering 8 categories:
+  - Direct requests.
+  - Role impersonation.
+  - Authority claims.
+  - Instruction overrides.
+  - Indirect prompt injection.
+  - Obfuscation.
+  - Inference by aggregation.
+  - Document existence probing.
+
+Planned metrics:
+
+- **Leak rate:** unauthorized information disclosed.
+- **False refusal rate:** valid questions refused despite accessible information.
+- **Answer accuracy:** correctness of answers against expected results.
+- **Existence-leak rate:** cases where the system reveals information about inaccessible documents.
+- **Latency:** response time.
+- **Cost:** estimated cost per query.
+
+Evaluation results will be reported from actual test runs, not assumed or hardcoded.
+
+## Current Implementation
+
+The project is currently in its backend foundation stage.
+
+Implemented:
+
+- FastAPI application setup.
+- PostgreSQL connection.
+- SQLAlchemy models for users, roles, and user-role relationships.
+- Alembic database migrations.
+- Password hashing and verification.
+- JWT access-token creation and validation.
+- Authentication dependencies for retrieving the current user.
+- Login endpoint.
+- Demo role and user seeding, including the Visitor identity.
+- Automated tests for authentication, models, and related components.
+
+Document ingestion, vector retrieval, permission-aware search, MCP integration, agent orchestration, and the evaluation pipeline are still pending.
 
 ## Roadmap
 
-- [ ] 1. Ingestion: chunking and metadata
-- [ ] 2. Login and permission-filtered search, validated by the access-matrix test
-- [ ] 3. MCP server exposing retrieval with the session identity
-- [ ] 4. Agent that uses the MCP tools
-- [ ] 5. Attack suite, evaluation and defense comparison
-- [ ] 6. Observability, deployment and write-up
+1. **Backend foundation:** database models, migrations, authentication, and demo identities.
+2. **Document ingestion:** generate the demo corpus, split documents into chunks, and attach permission metadata.
+3. **Permission-aware retrieval:** implement server-side filtering and test access against the ground-truth matrix.
+4. **MCP integration:** expose retrieval through an MCP tool while preserving authenticated identity.
+5. **Agent orchestration:** integrate the retrieval tool into an AI assistant.
+6. **Security evaluation:** run the question set and attack scenarios, measure leakage and answer quality.
+7. **Observability and deployment:** add tracing, evaluate performance, and deploy a reproducible demo.
 
-## Run it
+---
 
-_Coming soon._
+**Project status:** Backend foundation in progress.
