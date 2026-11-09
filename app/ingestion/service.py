@@ -1,31 +1,37 @@
 from pathlib import Path
+from langchain_core.documents import Document
 
-from app.ingestion.loaders import load_document
+from app.ingestion.loader import load_documents
 from app.ingestion.metadata import load_document_metadata
-from app.ingestion.schemas import DocumentSchema
 
 
-def ingest_documents(manifest_path: Path, dataset_root: Path) -> list[DocumentSchema]:
+def ingest_documents(
+    manifest_path: Path,
+    dataset_root: Path
+) -> list[Document]:
+
     document_metadata_list = load_document_metadata(manifest_path)
-
     ingested_documents = []
 
     for document_metadata in document_metadata_list:
         for file_metadata in document_metadata.files:
             file_path = dataset_root / file_metadata.path
-            file_format = file_metadata.format
-            content = load_document(file_path, file_format)
+            documents = load_documents(file_path)
 
-            ingested_documents.append(
-                DocumentSchema(
-                    document_id=document_metadata.document_id,
-                    title=document_metadata.titles[file_metadata.language],
-                    content=content,
-                    language=file_metadata.language,
-                    allowed_roles=document_metadata.allowed_roles,
-                    sensitivity=document_metadata.sensitivity,
-                    source_format=file_format,
-                )
-            )
+            for document in documents:
+                document.metadata.update({
+                    "document_id": document_metadata.document_id,
+                    "title": document_metadata.titles[file_metadata.language],
+                    "area": document_metadata.area.value,
+                    "sensitivity": document_metadata.sensitivity.value,
+                    "allowed_roles": [
+                        role.value for role in document_metadata.allowed_roles
+                    ],
+                    "language": file_metadata.language.value,
+                    "source_format": file_metadata.format.value,
+                    "source_path": str(file_path),
+                })
+
+                ingested_documents.append(document)
 
     return ingested_documents

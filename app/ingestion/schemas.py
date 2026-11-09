@@ -10,17 +10,6 @@ from app.ingestion.enums import (
     DocumentArea,
 )
 
-
-class DocumentSchema(BaseModel):
-    document_id: str = Field(min_length=1, max_length=20)
-    title: str = Field(min_length=1, max_length=200)
-    content: str = Field(min_length=1)
-    language: DocumentLanguage
-    allowed_roles: list[RoleName]
-    sensitivity: Sensitivity
-    source_format: DocumentFormat
-
-
 class FileMetadataSchema(BaseModel):
     language: DocumentLanguage
     path: str = Field(min_length=1)
