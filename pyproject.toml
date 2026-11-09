@@ -9,6 +9,7 @@ dependencies = [
     "bcrypt>=5.0.0",
     "fastapi>=0.162.0",
     "langchain-docling[local]>=3.0.0",
+    "langchain-huggingface[full]>=1.2.3",
     "psycopg[binary]>=3.3.6",
     "pwdlib[argon2]>=0.3.1",
     "pydantic-settings>=2.16.2",
