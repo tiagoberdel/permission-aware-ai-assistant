@@ -7,9 +7,8 @@ from app.ingestion.metadata import load_document_metadata
 
 def ingest_documents(
     manifest_path: Path,
-    dataset_root: Path
+    dataset_root: Path,
 ) -> list[Document]:
-
     document_metadata_list = load_document_metadata(manifest_path)
     ingested_documents = []
 
@@ -24,6 +23,7 @@ def ingest_documents(
                     "title": document_metadata.titles[file_metadata.language],
                     "area": document_metadata.area.value,
                     "sensitivity": document_metadata.sensitivity.value,
+                    "public_access": document_metadata.public_access,
                     "language": file_metadata.language.value,
                     "source_format": file_metadata.format.value,
                     "source_path": str(file_path),

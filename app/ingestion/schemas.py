@@ -23,6 +23,7 @@ class DocumentMetadataSchema(BaseModel):
     area: DocumentArea
     sensitivity: Sensitivity
     allowed_roles: list[RoleName]
+    public_access: bool = False
     owner: str
     created_at: date
     original_language: DocumentLanguage
