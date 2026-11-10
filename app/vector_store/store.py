@@ -26,13 +26,22 @@ def search_documents(
 
     vector_store = get_vector_store()
 
-    return vector_store.similarity_search(
-        query,
-        k=k,
-        filter={
+    if len(user_roles) == 1:
+        access_filter = {
+            "allowed_roles": {
+                "$contains": user_roles[0].value
+            }
+        }
+    else:
+        access_filter = {
             "$or": [
                 {"allowed_roles": {"$contains": role.value}}
                 for role in user_roles
             ]
         }
+
+    return vector_store.similarity_search(
+        query,
+        k=k,
+        filter=access_filter
     )
