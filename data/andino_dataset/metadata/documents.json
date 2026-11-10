@@ -1241,5 +1241,65 @@
         "format": "docx"
       }
     ]
+  },
+  {
+    "document_id": "G12",
+    "title": "Sobre Andino",
+    "titles": {
+      "es": "Sobre Andino",
+      "en": "About Andino"
+    },
+    "area": "general",
+    "sensitivity": "public",
+    "allowed_roles": [],
+    "public_access": true,
+    "owner": "laura@andino.com",
+    "created_at": "2026-11-09",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/md/G12_general.md",
+        "format": "md"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/md/G12_general.md",
+        "format": "md"
+      }
+    ]
+  },
+  {
+    "document_id": "X04",
+    "title": "Documento interno restringido",
+    "titles": {
+      "es": "Documento interno restringido",
+      "en": "Restricted Internal Document"
+    },
+    "area": "general",
+    "sensitivity": "confidential",
+    "allowed_roles": [],
+    "public_access": false,
+    "owner": "laura@andino.com",
+    "created_at": "2026-11-09",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/md/X04_general.md",
+        "format": "md"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/md/X04_general.md",
+        "format": "md"
+      }
+    ]
   }
 ]
