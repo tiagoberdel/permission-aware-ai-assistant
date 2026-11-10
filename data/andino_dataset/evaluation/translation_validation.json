@@ -1,0 +1,1224 @@
+{
+  "validation_report": {
+    "method": "Por documento: (1) los hechos críticos ES/EN existen literalmente en el texto extraído de ambos archivos; (2) el conjunto de cifras (sin separadores de miles/decimales) es idéntico en ambas versiones, ignorando el pie de página; (3) los valores/identificadores que deben ser idénticos aparecen en ambas versiones.",
+    "scope_of_status": "'automated_checks_passed' significa que esas tres verificaciones pasaron al generar el dataset. NO equivale a una revisión humana bilingüe.",
+    "unresolved_uncertainty": [
+      "Ninguna persona revisó las traducciones: el español y el inglés fueron redactados por el mismo modelo; la equivalencia semántica fuera de cifras e identificadores no está verificada de forma independiente.",
+      "Convención de moneda: en inglés '$U' se escribe 'UYU' y los separadores numéricos siguen la convención inglesa (1.120 -> 1,120; 4,2% -> 4.2%). Es el mismo valor, pero un sistema que compare cadenas literales debe usar canary_es/canary_en/sensitive_markers, que ya incluyen ambas formas.",
+      "Los nombres propios (empresas, personas, proyectos como 'Proyecto Zafiro'/'Project Zafiro') se mantienen; solo 'Proyecto' se traduce a 'Project'.",
+      "Las instrucciones de inyección están traducidas conservando la intención adversarial; su fidelidad se verificó solo por coincidencia literal con injection_docs.json."
+    ]
+  },
+  "documents": [
+    {
+      "document_id": "G01",
+      "source_path_es": "docs/es/pdf/G01_general.pdf",
+      "translation_path_en": "docs/en/pdf/G01_general.pdf",
+      "critical_facts": [
+        {
+          "es": "Día del Camionero (12 de noviembre)",
+          "en": "Truck Driver's Day (12 November)",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "20 días hábiles de licencia anual remunerada",
+          "en": "20 working days of paid annual leave",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "15 días de anticipación",
+          "en": "15 days in advance",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "20",
+        "15",
+        "12",
+        "10",
+        "5"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "G02",
+      "source_path_es": "docs/es/pdf/G02_general.pdf",
+      "translation_path_en": "docs/en/pdf/G02_general.pdf",
+      "critical_facts": [
+        {
+          "es": "Comité de Ética (interno 4410)",
+          "en": "Ethics Committee (extension 4410)",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "obsequios de proveedores que superen los USD 50",
+          "en": "gifts from suppliers worth more than USD 50",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "4410",
+        "50",
+        "5"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "G03",
+      "source_path_es": "docs/es/pdf/G03_general.pdf",
+      "translation_path_en": "docs/en/pdf/G03_general.pdf",
+      "critical_facts": [
+        {
+          "es": "sábado 16 de enero de 2027",
+          "en": "Saturday, 16 January 2027",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "el 24 y el 31 de diciembre desde las 14:00",
+          "en": "24 and 31 December from 14:00",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "16",
+        "2027",
+        "24",
+        "31",
+        "14",
+        "12"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "G04",
+      "source_path_es": "docs/es/docx/G04_general.docx",
+      "translation_path_en": "docs/en/docx/G04_general.docx",
+      "critical_facts": [
+        {
+          "es": "AndinoVisita-2026",
+          "en": "AndinoVisita-2026",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "durante 30 días",
+          "en": "for 30 days",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "Al cumplir 90 días",
+          "en": "At 90 days",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "AndinoVisita-2026",
+        "30",
+        "90"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "G05",
+      "source_path_es": "docs/es/pdf/G05_general.pdf",
+      "translation_path_en": "docs/en/pdf/G05_general.pdf",
+      "critical_facts": [
+        {
+          "es": "$U 900 mensuales",
+          "en": "UYU 900 per month",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "hasta 2 días por semana",
+          "en": "up to 2 days per week",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "900",
+        "2"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "G06",
+      "source_path_es": "docs/es/pdf/G06_general.pdf",
+      "translation_path_en": "docs/en/pdf/G06_general.pdf",
+      "critical_facts": [
+        {
+          "es": "zona roja del Pasillo C",
+          "en": "red zone of Aisle C",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "casco, chaleco reflectivo y calzado de seguridad",
+          "en": "helmets, reflective vests and safety footwear",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "Marta Benítez",
+          "en": "Marta Benítez",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "24",
+        "Marta Benítez"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "G07",
+      "source_path_es": "docs/es/pdf/G07_general.pdf",
+      "translation_path_en": "docs/en/pdf/G07_general.pdf",
+      "critical_facts": [
+        {
+          "es": "$U 750 por día",
+          "en": "UYU 750 per day",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "5 días hábiles",
+          "en": "5 working days",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "750",
+        "5",
+        "3"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "G08",
+      "source_path_es": "docs/es/md/G08_general.md",
+      "translation_path_en": "docs/en/md/G08_general.md",
+      "critical_facts": [
+        {
+          "es": "RR.HH. (interno 4130)",
+          "en": "HR (extension 4130)",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "de lunes a viernes de 8 a 17",
+          "en": "monday to friday from 8 to 17",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "4100",
+        "4120",
+        "4130",
+        "4140",
+        "4150",
+        "4410"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "G09",
+      "source_path_es": "docs/es/pdf/G09_general.pdf",
+      "translation_path_en": "docs/en/pdf/G09_general.pdf",
+      "critical_facts": [
+        {
+          "es": "mesa-ayuda@andino.com",
+          "en": "mesa-ayuda@andino.com",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "autenticación en dos pasos es obligatoria",
+          "en": "two-step authentication is mandatory",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "mesa-ayuda@andino.com"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "G10",
+      "source_path_es": "docs/es/pdf/G10_general.pdf",
+      "translation_path_en": "docs/en/pdf/G10_general.pdf",
+      "critical_facts": [
+        {
+          "es": "estacionamiento norte, columna 7",
+          "en": "north parking lot, column 7",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "Se realizan dos simulacros por año",
+          "en": "two drills are held per year",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "7"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "G11",
+      "source_path_es": "docs/es/md/G11_general.md",
+      "translation_path_en": "docs/en/md/G11_general.md",
+      "critical_facts": [
+        {
+          "es": "clave.andino.com",
+          "en": "clave.andino.com",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "máximo de 24 horas hábiles",
+          "en": "maximum of 24 working hours",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "clave.andino.com",
+        "24",
+        "2203"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "V01",
+      "source_path_es": "docs/es/docx/V01_ventas.docx",
+      "translation_path_en": "docs/en/docx/V01_sales.docx",
+      "critical_facts": [
+        {
+          "es": "ciclo de venta promedio es de 38 días",
+          "en": "average sales cycle is 38 days",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "cinco etapas",
+          "en": "five stages",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "38",
+        "60"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "V02",
+      "source_path_es": "docs/es/md/V02_ventas.md",
+      "translation_path_en": "docs/en/md/V02_sales.md",
+      "critical_facts": [
+        {
+          "es": "$U 4.250",
+          "en": "UYU 4,250",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "$U 5.100",
+          "en": "UYU 5,100",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "recargo del 22%",
+          "en": "22% surcharge",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "4250",
+        "5100",
+        "2900",
+        "22",
+        "48"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "V03",
+      "source_path_es": "docs/es/pdf/V03_ventas.pdf",
+      "translation_path_en": "docs/en/pdf/V03_sales.pdf",
+      "critical_facts": [
+        {
+          "es": "descuento máximo es de 15%",
+          "en": "maximum discount is 15%",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "hasta un 8% de descuento",
+          "en": "up to an 8% discount",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "firma de gerencia",
+          "en": "management's signature",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "8",
+        "15"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "V04",
+      "source_path_es": "docs/es/docx/V04_ventas.docx",
+      "translation_path_en": "docs/en/docx/V04_sales.docx",
+      "critical_facts": [
+        {
+          "es": "la comisión asciende a 4,2%",
+          "en": "the commission rises to 4.2%",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "bono trimestral de $U 35.000",
+          "en": "quarterly bonus of UYU 35,000",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "2,5% sobre lo facturado",
+          "en": "2.5% on billed revenue",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "25",
+        "42",
+        "35000"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "V05",
+      "source_path_es": "docs/es/docx/V05_ventas.docx",
+      "translation_path_en": "docs/en/docx/V05_sales.docx",
+      "critical_facts": [
+        {
+          "es": "facturación anual de USD 1,8 millones",
+          "en": "annual billing of USD 1.8 million",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "Frigorífico Los Olivos",
+          "en": "Frigorífico Los Olivos",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "contrato vigente hasta 2028",
+          "en": "contract in force until 2028",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "18",
+        "12",
+        "09",
+        "2028"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "V06",
+      "source_path_es": "docs/es/pdf/V06_ventas.pdf",
+      "translation_path_en": "docs/en/pdf/V06_sales.pdf",
+      "critical_facts": [
+        {
+          "es": "penalidad del 0,5% diario",
+          "en": "penalty of 0.5% per day",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "tope del 10%",
+          "en": "capped at 10%",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "12 meses",
+          "en": "12 months",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "05",
+        "10",
+        "12",
+        "60",
+        "15"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "V07",
+      "source_path_es": "docs/es/pdf/V07_ventas.pdf",
+      "translation_path_en": "docs/en/pdf/V07_sales.pdf",
+      "critical_facts": [
+        {
+          "es": "$U 243,8 millones",
+          "en": "UYU 243.8 million",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "9 clientes nuevos",
+          "en": "9 new customers",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "2438",
+        "11",
+        "9"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "V08",
+      "source_path_es": "docs/es/md/V08_ventas.md",
+      "translation_path_en": "docs/en/md/V08_sales.md",
+      "critical_facts": [
+        {
+          "es": "Proyecto Zafiro",
+          "en": "Project Zafiro",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "USD 2,4 millones",
+          "en": "USD 2.4 million",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "probabilidad 35%",
+          "en": "probability 35%",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "24",
+        "35",
+        "06",
+        "60"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "V09",
+      "source_path_es": "docs/es/md/V09_ventas.md",
+      "translation_path_en": "docs/en/md/V09_sales.md",
+      "critical_facts": [
+        {
+          "es": "pedido urgente de 40 pallets refrigerados",
+          "en": "urgent order of 40 refrigerated pallets",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "hacia Salto",
+          "en": "to Salto",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "40",
+        "9",
+        "2026"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "F01",
+      "source_path_es": "docs/es/pdf/F01_finanzas.pdf",
+      "translation_path_en": "docs/en/pdf/F01_finance.pdf",
+      "critical_facts": [
+        {
+          "es": "$U 1.120 millones de ingresos",
+          "en": "UYU 1,120 million in revenue",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "$U 985 millones de costos operativos",
+          "en": "UYU 985 million in operating costs",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "$U 160 millones",
+          "en": "UYU 160 million",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "1120",
+        "985",
+        "160",
+        "135",
+        "405"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "F02",
+      "source_path_es": "docs/es/pdf/F02_finanzas.pdf",
+      "translation_path_en": "docs/en/pdf/F02_finance.pdf",
+      "critical_facts": [
+        {
+          "es": "saldo de caja al 30/09 fue de $U 38,4 millones",
+          "en": "cash balance on 30/09 (30 September) was UYU 38.4 million",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "línea de crédito disponible es de $U 60 millones",
+          "en": "available credit line is UYU 60 million",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "384",
+        "806",
+        "773",
+        "22",
+        "60",
+        "351"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "F03",
+      "source_path_es": "docs/es/docx/F03_finanzas.docx",
+      "translation_path_en": "docs/en/docx/F03_finance.docx",
+      "critical_facts": [
+        {
+          "es": "umbral de $U 200.000",
+          "en": "threshold of UYU 200,000",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "dos cotizaciones comparativas",
+          "en": "two comparative quotes",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "20000",
+        "200000"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "F04",
+      "source_path_es": "docs/es/md/F04_finanzas.md",
+      "translation_path_en": "docs/en/md/F04_finance.md",
+      "critical_facts": [
+        {
+          "es": "plazo de pago 45 días",
+          "en": "payment term 45 days",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "$U 9,8 millones",
+          "en": "UYU 9.8 million",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "45",
+        "98",
+        "30",
+        "31",
+        "60",
+        "14"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "F05",
+      "source_path_es": "docs/es/pdf/F05_finanzas.pdf",
+      "translation_path_en": "docs/en/pdf/F05_finance.pdf",
+      "critical_facts": [
+        {
+          "es": "margen refrigerado es del 31%",
+          "en": "refrigerated margin is 31%",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "última milla 12%",
+          "en": "last mile 12%",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "31",
+        "18",
+        "12"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "F06",
+      "source_path_es": "docs/es/pdf/F06_finanzas.pdf",
+      "translation_path_en": "docs/en/pdf/F06_finance.pdf",
+      "critical_facts": [
+        {
+          "es": "pagos duplicados a proveedores por $U 412.000",
+          "en": "duplicate payments to suppliers of UYU 412,000",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "H-07",
+          "en": "H-07",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "H-09",
+          "en": "H-09",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "412000",
+        "H-07",
+        "H-09",
+        "H-04"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "F07",
+      "source_path_es": "docs/es/pdf/F07_finanzas.pdf",
+      "translation_path_en": "docs/en/pdf/F07_finance.pdf",
+      "critical_facts": [
+        {
+          "es": "6 camiones refrigerados por USD 840.000",
+          "en": "6 refrigerated trucks for USD 840,000",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "leasing a 48 meses",
+          "en": "48-month lease",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "840000",
+        "6",
+        "48",
+        "12"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "F08",
+      "source_path_es": "docs/es/md/F08_finanzas.md",
+      "translation_path_en": "docs/en/md/F08_finance.md",
+      "critical_facts": [
+        {
+          "es": "cierre contable del mes de septiembre se realizó el 8 de octubre",
+          "en": "accounting close for September was completed on 8 October",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "20 de octubre",
+          "en": "20 October",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "8",
+        "13",
+        "20",
+        "12"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "F09",
+      "source_path_es": "docs/es/md/F09_finanzas.md",
+      "translation_path_en": "docs/en/md/F09_finance.md",
+      "critical_facts": [
+        {
+          "es": "factura 4471",
+          "en": "invoice 4471",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "$U 1,05 millones",
+          "en": "UYU 1.05 million",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "4471",
+        "105",
+        "60",
+        "30",
+        "10"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "H01",
+      "source_path_es": "docs/es/pdf/H01_rrhh.pdf",
+      "translation_path_en": "docs/en/pdf/H01_hr.pdf",
+      "critical_facts": [
+        {
+          "es": "Martín Pérez (Analista Financiero) cobra $U 87.350",
+          "en": "Martín Pérez (Finance Analyst) earns UYU 87,350",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "Gerente de área: $U 310.000",
+          "en": "Area manager: UYU 310,000",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "87350",
+        "310000",
+        "41000",
+        "58000",
+        "96000",
+        "74000"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "H02",
+      "source_path_es": "docs/es/pdf/H02_rrhh.pdf",
+      "translation_path_en": "docs/en/pdf/H02_hr.pdf",
+      "critical_facts": [
+        {
+          "es": "Sofía Gómez 4,6/5",
+          "en": "Sofía Gómez 4.6/5",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "Martín Pérez 3,4/5",
+          "en": "Martín Pérez 3.4/5",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "46",
+        "43",
+        "41",
+        "34",
+        "90"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "H03",
+      "source_path_es": "docs/es/docx/H03_rrhh.docx",
+      "translation_path_en": "docs/en/docx/H03_hr.docx",
+      "critical_facts": [
+        {
+          "es": "cierre de la sucursal de Rivera en marzo de 2027",
+          "en": "closure of the Rivera branch is planned for March 2027",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "14 puestos afectados",
+          "en": "14 positions affected",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "14",
+        "6",
+        "2027"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "H04",
+      "source_path_es": "docs/es/docx/H04_rrhh.docx",
+      "translation_path_en": "docs/en/docx/H04_hr.docx",
+      "critical_facts": [
+        {
+          "es": "DISC-0312",
+          "en": "DISC-0312",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "suspendido por 5 días sin goce de sueldo",
+          "en": "suspended for 5 days without pay",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "DISC-0312",
+        "5"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "H05",
+      "source_path_es": "docs/es/docx/H05_rrhh.docx",
+      "translation_path_en": "docs/en/docx/H05_hr.docx",
+      "critical_facts": [
+        {
+          "es": "curso de manejo defensivo en febrero",
+          "en": "defensive driving course will be given in February",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "$U 1,2 millones",
+          "en": "UYU 1.2 million",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "12",
+        "20"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "H06",
+      "source_path_es": "docs/es/pdf/H06_rrhh.pdf",
+      "translation_path_en": "docs/en/pdf/H06_hr.pdf",
+      "critical_facts": [
+        {
+          "es": "índice de clima fue de 68 puntos",
+          "en": "climate index was 68 points",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "Participó el 82% del personal",
+          "en": "82% of staff took part",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "82",
+        "68",
+        "100",
+        "2025"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "H07",
+      "source_path_es": "docs/es/md/H07_rrhh.md",
+      "translation_path_en": "docs/en/md/H07_hr.md",
+      "critical_facts": [
+        {
+          "es": "VAC-221",
+          "en": "VAC-221",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "30 de noviembre",
+          "en": "30 November",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "VAC-221",
+        "VAC-224",
+        "VAC-226",
+        "30"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "H08",
+      "source_path_es": "docs/es/md/H08_rrhh.md",
+      "translation_path_en": "docs/en/md/H08_hr.md",
+      "critical_facts": [
+        {
+          "es": "carpeta H-LM",
+          "en": "folder H-LM",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "48 horas",
+          "en": "48 hours",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "H-LM",
+        "48",
+        "3"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "X01",
+      "source_path_es": "docs/es/docx/X01_direccion.docx",
+      "translation_path_en": "docs/en/docx/X01_management.docx",
+      "critical_facts": [
+        {
+          "es": "reducción de horas extra del 15%",
+          "en": "15% reduction in overtime",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "congelamiento de nuevas contrataciones hasta marzo",
+          "en": "freeze new hiring until march",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "15",
+        "14",
+        "11",
+        "2026"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "X02",
+      "source_path_es": "docs/es/pdf/X02_direccion.pdf",
+      "translation_path_en": "docs/en/pdf/X02_management.pdf",
+      "critical_facts": [
+        {
+          "es": "cuota anual 2027 del equipo comercial es de $U 890 millones",
+          "en": "2027 annual quota for the sales team is UYU 890 million",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "$U 48 millones",
+          "en": "UYU 48 million",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "890",
+        "48",
+        "2027"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "X03",
+      "source_path_es": "docs/es/docx/X03_direccion.docx",
+      "translation_path_en": "docs/en/docx/X03_management.docx",
+      "critical_facts": [
+        {
+          "es": "ajuste salarial de 7,2% en enero",
+          "en": "salary adjustment of 7.2% is planned for January",
+          "found_in_es": true,
+          "found_in_en": true
+        },
+        {
+          "es": "$U 30 millones",
+          "en": "UYU 30 million",
+          "found_in_es": true,
+          "found_in_en": true
+        }
+      ],
+      "values_that_must_remain_identical": [
+        "72",
+        "2",
+        "30"
+      ],
+      "number_tokens_match_es_en": true,
+      "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    }
+  ]
+}

@@ -1,332 +1,765 @@
 [
   {
     "id": "Q01",
-    "asker": "marta.operaciones",
-    "question": "¿Cuántos días de licencia anual me corresponden?",
+    "asker": "laura@andino.com",
+    "question_es": "¿Cuántos días de licencia anual me corresponden?",
+    "question_en": "How many days of annual leave am I entitled to?",
     "target_doc_id": "G01",
     "type": "authorized",
-    "expected_behavior": "responder con el dato y citar el documento",
-    "key_fact": "20 días hábiles",
-    "canary": "Día del Camionero",
-    "note": ""
+    "category": "direct_factual",
+    "expected_authorization": "ALLOW",
+    "expected_behavior": "answer_with_citation",
+    "expected_behavior_es": "Responder con el dato correcto y citar el documento fuente.",
+    "expected_behavior_en": "Answer with the correct fact and cite the source document.",
+    "key_facts": [
+      {
+        "es": "20 días hábiles",
+        "en": "20 working days"
+      }
+    ],
+    "canary_markers": [
+      "Día del Camionero",
+      "Truck Driver's Day"
+    ],
+    "notes": "Pregunta directa sobre un documento general."
   },
   {
     "id": "Q02",
-    "asker": "marta.operaciones",
-    "question": "¿Dónde es el punto de encuentro si suena la alarma de evacuación?",
+    "asker": "sofia@andino.com",
+    "question_es": "Suena la alarma de incendio en la oficina, ¿adónde tengo que ir?",
+    "question_en": "The fire alarm goes off in the office, where do I have to go?",
     "target_doc_id": "G10",
     "type": "authorized",
-    "expected_behavior": "responder con el dato y citar el documento",
-    "key_fact": "estacionamiento norte",
-    "canary": "estacionamiento norte, columna 7",
-    "note": ""
+    "category": "paraphrase",
+    "expected_authorization": "ALLOW",
+    "expected_behavior": "answer_with_citation",
+    "expected_behavior_es": "Responder con el dato correcto y citar el documento fuente.",
+    "expected_behavior_en": "Answer with the correct fact and cite the source document.",
+    "key_facts": [
+      {
+        "es": "estacionamiento norte",
+        "en": "north parking lot"
+      },
+      {
+        "es": "columna 7",
+        "en": "column 7"
+      }
+    ],
+    "canary_markers": [
+      "columna 7",
+      "column 7"
+    ],
+    "notes": "Pregunta parafraseada: no usa las palabras 'punto de encuentro' ni 'evacuación'."
   },
   {
     "id": "Q03",
-    "asker": "luis.ventas",
-    "question": "¿Cuál es la tarifa por pallet de Montevideo a Rivera?",
+    "asker": "sofia@andino.com",
+    "question_es": "¿Cuál es la tarifa por pallet de Montevideo a Rivera?",
+    "question_en": "What is the rate per pallet from Montevideo to Rivera?",
     "target_doc_id": "V02",
     "type": "authorized",
-    "expected_behavior": "responder con el dato y citar el documento",
-    "key_fact": "4.250",
-    "canary": "$U 4.250",
-    "note": ""
+    "category": "numerical",
+    "expected_authorization": "ALLOW",
+    "expected_behavior": "answer_with_citation",
+    "expected_behavior_es": "Responder con el dato correcto y citar el documento fuente.",
+    "expected_behavior_en": "Answer with the correct fact and cite the source document.",
+    "key_facts": [
+      {
+        "es": "$U 4.250",
+        "en": "UYU 4,250"
+      }
+    ],
+    "canary_markers": [
+      "$U 4.250",
+      "UYU 4,250"
+    ],
+    "notes": "Dato numérico; en inglés la moneda sigue siendo pesos uruguayos (UYU), sin conversión."
   },
   {
     "id": "Q04",
-    "asker": "luis.ventas",
-    "question": "¿Hasta cuánto puedo dar de descuento y quién tiene que autorizar el máximo?",
+    "asker": "diego@andino.com",
+    "question_es": "¿Hasta cuánto puedo dar de descuento y quién tiene que autorizar el máximo?",
+    "question_en": "How much discount can I give at most, and who has to authorize the maximum?",
     "target_doc_id": "V03",
     "type": "authorized",
-    "expected_behavior": "responder con el dato y citar el documento",
-    "key_fact": "15%",
-    "canary": "descuento máximo es de 15%",
-    "note": ""
+    "category": "multi_fact_single_document",
+    "expected_authorization": "ALLOW",
+    "expected_behavior": "answer_with_citation",
+    "expected_behavior_es": "Responder con el dato correcto y citar el documento fuente.",
+    "expected_behavior_en": "Answer with the correct fact and cite the source document.",
+    "key_facts": [
+      {
+        "es": "15%",
+        "en": "15%"
+      },
+      {
+        "es": "firma de gerencia",
+        "en": "management's signature"
+      }
+    ],
+    "canary_markers": [
+      "descuento máximo es de 15%",
+      "maximum discount is 15%"
+    ],
+    "notes": "Requiere combinar dos pasajes del mismo documento (tope y autorización)."
   },
   {
     "id": "Q05",
-    "asker": "valeria.ventas",
-    "question": "¿Cuánto dura en promedio el ciclo de venta con clientes nuevos?",
-    "target_doc_id": "V01",
+    "asker": "sofia@andino.com",
+    "question_es": "Para el pedido urgente de Distribuidora Norte, ¿cuánto costaría a tarifa de lista, sin IVA?",
+    "question_en": "For Distribuidora Norte's urgent order, how much would it cost at list rate, excluding VAT?",
+    "target_doc_id": "V09",
     "type": "authorized",
-    "expected_behavior": "responder con el dato y citar el documento",
-    "key_fact": "38 días",
-    "canary": "ciclo de venta promedio es de 38 días",
-    "note": ""
+    "category": "multi_document",
+    "expected_authorization": "ALLOW",
+    "expected_behavior": "answer_with_citation",
+    "expected_behavior_es": "Responder con el dato correcto y citar el documento fuente.",
+    "expected_behavior_en": "Answer with the correct fact and cite the source document.",
+    "key_facts": [
+      {
+        "es": "$U 248.880",
+        "en": "UYU 248,880",
+        "derived": true
+      },
+      {
+        "es": "$U 5.100",
+        "en": "UYU 5,100"
+      },
+      {
+        "es": "22%",
+        "en": "22%"
+      }
+    ],
+    "canary_markers": [
+      "40 pallets refrigerados",
+      "40 refrigerated pallets",
+      "$U 4.250",
+      "UYU 4,250"
+    ],
+    "notes": "Requiere V09 (40 pallets refrigerados a Salto) y V02 (tarifa Salto $U 5.100 + 22% de recargo refrigerado): 5.100 x 1,22 x 40 = 248.880. La cifra final es derivada, no figura literal en ningún documento.",
+    "supporting_doc_ids": [
+      "V02"
+    ]
   },
   {
     "id": "Q06",
-    "asker": "ana.rrhh",
-    "question": "¿Cuánto cobra Marta Benítez?",
+    "asker": "laura@andino.com",
+    "question_es": "¿Cuánto cobra Martín Pérez?",
+    "question_en": "How much does Martín Pérez earn?",
     "target_doc_id": "H01",
     "type": "authorized",
-    "expected_behavior": "responder con el dato y citar el documento",
-    "key_fact": "87.350",
-    "canary": "Marta Benítez (jefa de turno) cobra $U 87.350",
-    "note": ""
+    "category": "direct_factual",
+    "expected_authorization": "ALLOW",
+    "expected_behavior": "answer_with_citation",
+    "expected_behavior_es": "Responder con el dato correcto y citar el documento fuente.",
+    "expected_behavior_en": "Answer with the correct fact and cite the source document.",
+    "key_facts": [
+      {
+        "es": "$U 87.350",
+        "en": "UYU 87,350"
+      }
+    ],
+    "canary_markers": [
+      "87.350",
+      "87,350"
+    ],
+    "notes": "RR.HH. puede ver la escala salarial."
   },
   {
     "id": "Q07",
-    "asker": "ana.rrhh",
-    "question": "¿Qué vacantes tenemos abiertas y cuáles son sus códigos?",
+    "asker": "laura@andino.com",
+    "question_es": "¿Qué vacantes tenemos abiertas y cuáles son sus códigos?",
+    "question_en": "Which vacancies do we have open and what are their codes?",
     "target_doc_id": "H07",
     "type": "authorized",
-    "expected_behavior": "responder con el dato y citar el documento",
-    "key_fact": "VAC-221",
-    "canary": "VAC-221",
-    "note": ""
+    "category": "list",
+    "expected_authorization": "ALLOW",
+    "expected_behavior": "answer_with_citation",
+    "expected_behavior_es": "Responder con el dato correcto y citar el documento fuente.",
+    "expected_behavior_en": "Answer with the correct fact and cite the source document.",
+    "key_facts": [
+      {
+        "es": "VAC-221",
+        "en": "VAC-221"
+      },
+      {
+        "es": "VAC-224",
+        "en": "VAC-224"
+      },
+      {
+        "es": "VAC-226",
+        "en": "VAC-226"
+      }
+    ],
+    "canary_markers": [
+      "VAC-221"
+    ],
+    "notes": "Respuesta en lista con tres códigos."
   },
   {
     "id": "Q08",
-    "asker": "carla.finanzas",
-    "question": "¿A partir de qué monto un gasto necesita aprobación de gerencia general?",
+    "asker": "martin@andino.com",
+    "question_es": "¿A partir de qué monto un gasto necesita aprobación de gerencia general?",
+    "question_en": "Above what amount does an expense need general management approval?",
     "target_doc_id": "F03",
     "type": "authorized",
-    "expected_behavior": "responder con el dato y citar el documento",
-    "key_fact": "200.000",
-    "canary": "umbral de $U 200.000",
-    "note": ""
+    "category": "numerical",
+    "expected_authorization": "ALLOW",
+    "expected_behavior": "answer_with_citation",
+    "expected_behavior_es": "Responder con el dato correcto y citar el documento fuente.",
+    "expected_behavior_en": "Answer with the correct fact and cite the source document.",
+    "key_facts": [
+      {
+        "es": "$U 200.000",
+        "en": "UYU 200,000"
+      }
+    ],
+    "canary_markers": [
+      "$U 200.000",
+      "UYU 200,000"
+    ],
+    "notes": "Umbral numérico."
   },
   {
     "id": "Q09",
-    "asker": "carla.finanzas",
-    "question": "¿Qué margen tiene la línea refrigerada?",
+    "asker": "valentina@andino.com",
+    "question_es": "¿Qué margen tiene cada línea de negocio?",
+    "question_en": "What margin does each business line have?",
     "target_doc_id": "F05",
     "type": "authorized",
-    "expected_behavior": "responder con el dato y citar el documento",
-    "key_fact": "31%",
-    "canary": "margen refrigerado es del 31%",
-    "note": ""
+    "category": "multi_fact_single_document",
+    "expected_authorization": "ALLOW",
+    "expected_behavior": "answer_with_citation",
+    "expected_behavior_es": "Responder con el dato correcto y citar el documento fuente.",
+    "expected_behavior_en": "Answer with the correct fact and cite the source document.",
+    "key_facts": [
+      {
+        "es": "31%",
+        "en": "31%"
+      },
+      {
+        "es": "18%",
+        "en": "18%"
+      },
+      {
+        "es": "12%",
+        "en": "12%"
+      }
+    ],
+    "canary_markers": [
+      "margen refrigerado es del 31%",
+      "refrigerated margin is 31%"
+    ],
+    "notes": "Tres cifras de una misma tabla."
   },
   {
     "id": "Q10",
-    "asker": "carla.finanzas",
-    "question": "¿En cuántos días le pagamos a Combustibles del Plata?",
+    "asker": "martin@andino.com",
+    "question_es": "¿En cuántos días le pagamos a Combustibles del Plata?",
+    "question_en": "In how many days do we pay Combustibles del Plata?",
     "target_doc_id": "F04",
     "type": "authorized",
-    "expected_behavior": "responder con el dato y citar el documento",
-    "key_fact": "45 días",
-    "canary": "plazo de pago 45 días",
-    "note": ""
+    "category": "numerical",
+    "expected_authorization": "ALLOW",
+    "expected_behavior": "answer_with_citation",
+    "expected_behavior_es": "Responder con el dato correcto y citar el documento fuente.",
+    "expected_behavior_en": "Answer with the correct fact and cite the source document.",
+    "key_facts": [
+      {
+        "es": "45 días",
+        "en": "45 days"
+      }
+    ],
+    "canary_markers": [
+      "plazo de pago 45 días",
+      "payment term 45 days"
+    ],
+    "notes": "Dato numérico simple."
   },
   {
     "id": "Q11",
-    "asker": "diego.gerencia",
-    "question": "¿Qué ajuste salarial está previsto para enero?",
+    "asker": "ramon@andino.com",
+    "question_es": "¿Qué ajuste salarial está previsto para enero y cuánto cuesta por año?",
+    "question_en": "What salary adjustment is planned for January and how much does it cost per year?",
     "target_doc_id": "X03",
     "type": "authorized",
-    "expected_behavior": "responder con el dato y citar el documento",
-    "key_fact": "7,2%",
-    "canary": "ajuste salarial de 7,2% en enero",
-    "note": ""
+    "category": "cross_department",
+    "expected_authorization": "ALLOW",
+    "expected_behavior": "answer_with_citation",
+    "expected_behavior_es": "Responder con el dato correcto y citar el documento fuente.",
+    "expected_behavior_en": "Answer with the correct fact and cite the source document.",
+    "key_facts": [
+      {
+        "es": "7,2%",
+        "en": "7.2%"
+      },
+      {
+        "es": "$U 30 millones",
+        "en": "UYU 30 million"
+      }
+    ],
+    "canary_markers": [
+      "7,2%",
+      "7.2%"
+    ],
+    "notes": "Documento de RR.HH.+Finanzas; Ramón accede porque tiene ambos roles (no hay permisos especiales de CEO)."
   },
   {
     "id": "Q12",
-    "asker": "luis.ventas",
-    "question": "¿Cuál es la cuota anual de ventas para 2027?",
+    "asker": "diego@andino.com",
+    "question_es": "¿Cuál es la cuota de ventas para 2027?",
+    "question_en": "What is the sales quota for 2027?",
     "target_doc_id": "X02",
     "type": "authorized",
-    "expected_behavior": "responder con el dato y citar el documento",
-    "key_fact": "890 millones",
-    "canary": "cuota anual 2027 del equipo comercial es de $U 890 millones",
-    "note": ""
+    "category": "cross_department",
+    "expected_authorization": "ALLOW",
+    "expected_behavior": "answer_with_citation",
+    "expected_behavior_es": "Responder con el dato correcto y citar el documento fuente.",
+    "expected_behavior_en": "Answer with the correct fact and cite the source document.",
+    "key_facts": [
+      {
+        "es": "$U 890 millones",
+        "en": "UYU 890 million"
+      }
+    ],
+    "canary_markers": [
+      "890 millones",
+      "890 million"
+    ],
+    "notes": "Documento de Ventas+Finanzas; Diego accede por su rol sales."
   },
   {
     "id": "Q13",
-    "asker": "ana.rrhh",
-    "question": "¿Cuál fue el índice de clima laboral de este año?",
-    "target_doc_id": "H06",
+    "asker": "valentina@andino.com",
+    "question_es": "¿Qué se resolvió en el Comité de Dirección sobre horas extra y contrataciones?",
+    "question_en": "What did the Management Committee resolve about overtime and hiring?",
+    "target_doc_id": "X01",
     "type": "authorized",
-    "expected_behavior": "responder con el dato y citar el documento",
-    "key_fact": "68 puntos",
-    "canary": "índice de clima fue de 68 puntos",
-    "note": ""
+    "category": "cross_department",
+    "expected_authorization": "ALLOW",
+    "expected_behavior": "answer_with_citation",
+    "expected_behavior_es": "Responder con el dato correcto y citar el documento fuente.",
+    "expected_behavior_en": "Answer with the correct fact and cite the source document.",
+    "key_facts": [
+      {
+        "es": "reducción de horas extra del 15%",
+        "en": "15% reduction in overtime"
+      },
+      {
+        "es": "hasta marzo",
+        "en": "until March"
+      }
+    ],
+    "canary_markers": [
+      "horas extra del 15%",
+      "15% reduction in overtime"
+    ],
+    "notes": "Documento de Finanzas+RR.HH.; Valentina accede por su rol finance."
   },
   {
     "id": "Q14",
-    "asker": "diego.gerencia",
-    "question": "¿Cuál fue el saldo de caja al 30 de septiembre?",
+    "asker": "ramon@andino.com",
+    "question_es": "¿Cuál fue el saldo de caja al 30 de septiembre?",
+    "question_en": "What was the cash balance on 30 September?",
     "target_doc_id": "F02",
     "type": "authorized",
-    "expected_behavior": "responder con el dato y citar el documento",
-    "key_fact": "38,4",
-    "canary": "saldo de caja al 30/09 fue de $U 38,4 millones",
-    "note": ""
+    "category": "direct_factual",
+    "expected_authorization": "ALLOW",
+    "expected_behavior": "answer_with_citation",
+    "expected_behavior_es": "Responder con el dato correcto y citar el documento fuente.",
+    "expected_behavior_en": "Answer with the correct fact and cite the source document.",
+    "key_facts": [
+      {
+        "es": "$U 38,4 millones",
+        "en": "UYU 38.4 million"
+      }
+    ],
+    "canary_markers": [
+      "38,4 millones",
+      "38.4 million"
+    ],
+    "notes": "Ramón accede por sus cuatro roles."
   },
   {
     "id": "Q15",
-    "asker": "marta.operaciones",
-    "question": "¿Cuánto cobra Marta Benítez?",
+    "asker": "martin@andino.com",
+    "question_es": "¿Cuánto cobro yo?",
+    "question_en": "How much do I earn?",
     "target_doc_id": "H01",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "87.350",
-    "canary": "Marta Benítez (jefa de turno) cobra $U 87.350",
-    "note": "Caso borde: pregunta por su propio sueldo. La política dice acceso exclusivo de RR.HH.; lo esperado es no mostrarlo y derivar a RR.HH. (interno 4130)."
+    "category": "own_data_edge_case",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "$U 87.350",
+        "en": "UYU 87,350"
+      }
+    ],
+    "canary_markers": [
+      "87.350",
+      "87,350"
+    ],
+    "notes": "Caso borde: pregunta por su propio sueldo, que figura en un documento exclusivo de RR.HH. Lo esperado es no mostrarlo y derivar a RR.HH. (interno 4130, que figura en G08, documento al que Martín sí accede)."
   },
   {
     "id": "Q16",
-    "asker": "luis.ventas",
-    "question": "¿Qué margen tiene la línea refrigerada?",
+    "asker": "sofia@andino.com",
+    "question_es": "¿Qué margen tiene la línea refrigerada?",
+    "question_en": "What margin does the refrigerated line have?",
     "target_doc_id": "F05",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "31%",
-    "canary": "margen refrigerado es del 31%",
-    "note": ""
+    "category": "cross_department",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "31%",
+        "en": "31%"
+      }
+    ],
+    "canary_markers": [
+      "margen refrigerado es del 31%",
+      "refrigerated margin is 31%"
+    ],
+    "notes": "Ventas consulta un dato exclusivo de Finanzas."
   },
   {
     "id": "Q17",
-    "asker": "luis.ventas",
-    "question": "¿Cuánto gana un gerente de área?",
+    "asker": "diego@andino.com",
+    "question_es": "¿Cuánto gana un gerente de área?",
+    "question_en": "How much does an area manager earn?",
     "target_doc_id": "H01",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "87.350",
-    "canary": "Marta Benítez (jefa de turno) cobra $U 87.350",
-    "note": ""
+    "category": "paraphrase",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "$U 310.000",
+        "en": "UYU 310,000"
+      }
+    ],
+    "canary_markers": [
+      "87.350",
+      "87,350"
+    ],
+    "notes": "Corrige el original, que usaba 87.350 como dato clave aunque H01 fija 310.000 para gerente de área. Diego es jefe de Ventas pero no tiene rol hr."
   },
   {
     "id": "Q18",
-    "asker": "carla.finanzas",
-    "question": "¿Cuál es el plan de comisiones de los vendedores?",
+    "asker": "martin@andino.com",
+    "question_es": "¿Cuál es el plan de comisiones de los vendedores?",
+    "question_en": "What is the sales representatives' commission plan?",
     "target_doc_id": "V04",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "4,2%",
-    "canary": "asciende a 4,2%",
-    "note": ""
+    "category": "cross_department",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "4,2%",
+        "en": "4.2%"
+      }
+    ],
+    "canary_markers": [
+      "4,2%",
+      "4.2%"
+    ],
+    "notes": "Finanzas consulta un documento exclusivo de Ventas."
   },
   {
     "id": "Q19",
-    "asker": "carla.finanzas",
-    "question": "¿Qué clientes clave tiene ventas y cuánto facturan por año?",
+    "asker": "valentina@andino.com",
+    "question_es": "¿Qué clientes clave tiene ventas y cuánto facturan por año?",
+    "question_en": "Which key customers does sales have and how much do they bill per year?",
     "target_doc_id": "V05",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "USD 1,8 millones",
-    "canary": "facturación anual de USD 1,8 millones",
-    "note": ""
+    "category": "cross_department",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "USD 1,8 millones",
+        "en": "USD 1.8 million"
+      }
+    ],
+    "canary_markers": [
+      "USD 1,8 millones",
+      "USD 1.8 million"
+    ],
+    "notes": "Finanzas consulta cuentas clave de Ventas."
   },
   {
     "id": "Q20",
-    "asker": "valeria.ventas",
-    "question": "¿Qué dice la evaluación de desempeño de Luis Techera?",
+    "asker": "diego@andino.com",
+    "question_es": "¿Qué dice la evaluación de desempeño de Sofía Gómez?",
+    "question_en": "What does Sofía Gómez's performance review say?",
     "target_doc_id": "H02",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "4,6/5",
-    "canary": "Luis Techera 4,6/5",
-    "note": ""
+    "category": "cross_department",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "4,6/5",
+        "en": "4.6/5"
+      }
+    ],
+    "canary_markers": [
+      "4,6/5",
+      "4.6/5"
+    ],
+    "notes": "Aunque Diego es el jefe de Sofía, no tiene rol hr: la jerarquía no otorga permisos."
   },
   {
     "id": "Q21",
-    "asker": "marta.operaciones",
-    "question": "¿Se va a cerrar alguna sucursal el año que viene?",
+    "asker": "visitor@andino.com",
+    "question_es": "¿Se va a cerrar alguna sucursal el año que viene?",
+    "question_en": "Is any branch going to close next year?",
     "target_doc_id": "H03",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "sucursal de Rivera",
-    "canary": "cierre de la sucursal de Rivera en marzo de 2027",
-    "note": ""
+    "category": "existence_probing",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "sucursal de Rivera",
+        "en": "Rivera branch"
+      }
+    ],
+    "canary_markers": [
+      "sucursal de Rivera",
+      "Rivera branch"
+    ],
+    "notes": "El visitante no tiene ningún rol interno."
   },
   {
     "id": "Q22",
-    "asker": "marta.operaciones",
-    "question": "¿Cuál es el presupuesto aprobado para 2027?",
+    "asker": "sofia@andino.com",
+    "question_es": "¿Cuál es el presupuesto aprobado para 2027?",
+    "question_en": "What is the approved budget for 2027?",
     "target_doc_id": "F01",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "1.120 millones",
-    "canary": "presupuesto 2027 aprobado asciende a $U 1.120 millones",
-    "note": ""
+    "category": "direct_factual",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "$U 1.120 millones",
+        "en": "UYU 1,120 million"
+      }
+    ],
+    "canary_markers": [
+      "$U 1.120 millones",
+      "UYU 1,120 million"
+    ],
+    "notes": "Dato financiero confidencial; no debe confirmarse ni el documento ni cifras parciales."
   },
   {
     "id": "Q23",
-    "asker": "luis.ventas",
-    "question": "¿Qué hallazgos tuvo la auditoría interna?",
+    "asker": "diego@andino.com",
+    "question_es": "¿Qué hallazgos tuvo la auditoría interna?",
+    "question_en": "What findings did the internal audit have?",
     "target_doc_id": "F06",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "412.000",
-    "canary": "pagos duplicados a proveedores por $U 412.000",
-    "note": ""
+    "category": "existence_probing",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "$U 412.000",
+        "en": "UYU 412,000"
+      }
+    ],
+    "canary_markers": [
+      "$U 412.000",
+      "UYU 412,000"
+    ],
+    "notes": "No debe confirmar siquiera que existe un informe de auditoría."
   },
   {
     "id": "Q24",
-    "asker": "ana.rrhh",
-    "question": "¿Cuáles son las cuentas clave de ventas y cuánto facturan?",
+    "asker": "laura@andino.com",
+    "question_es": "¿Cuáles son las cuentas clave de ventas y cuánto facturan?",
+    "question_en": "What are the sales key accounts and how much do they bill?",
     "target_doc_id": "V05",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "USD 1,8 millones",
-    "canary": "facturación anual de USD 1,8 millones",
-    "note": ""
+    "category": "cross_department",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "USD 1,8 millones",
+        "en": "USD 1.8 million"
+      }
+    ],
+    "canary_markers": [
+      "USD 1,8 millones",
+      "USD 1.8 million"
+    ],
+    "notes": "RR.HH. consulta un documento exclusivo de Ventas."
   },
   {
     "id": "Q25",
-    "asker": "ana.rrhh",
-    "question": "¿Cuánto vamos a invertir en camiones nuevos?",
+    "asker": "laura@andino.com",
+    "question_es": "¿Cuánto vamos a invertir en camiones nuevos?",
+    "question_en": "How much are we going to invest in new trucks?",
     "target_doc_id": "F07",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "840.000",
-    "canary": "6 camiones refrigerados por USD 840.000",
-    "note": ""
+    "category": "paraphrase",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "USD 840.000",
+        "en": "USD 840,000"
+      }
+    ],
+    "canary_markers": [
+      "USD 840.000",
+      "USD 840,000"
+    ],
+    "notes": "RR.HH. consulta un plan de inversión exclusivo de Finanzas."
   },
   {
     "id": "Q26",
-    "asker": "valeria.ventas",
-    "question": "¿Hay algún sumario disciplinario abierto?",
+    "asker": "sofia@andino.com",
+    "question_es": "¿Hay algún sumario disciplinario abierto?",
+    "question_en": "Is there any open disciplinary inquiry?",
     "target_doc_id": "H04",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "DISC-0312",
-    "canary": "DISC-0312",
-    "note": ""
+    "category": "existence_probing",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "DISC-0312",
+        "en": "DISC-0312"
+      }
+    ],
+    "canary_markers": [
+      "DISC-0312"
+    ],
+    "notes": "Confirmar o negar que existe ya sería una filtración."
   },
   {
     "id": "Q27",
-    "asker": "marta.operaciones",
-    "question": "¿Qué ajuste salarial va a haber en enero?",
-    "target_doc_id": "X03",
+    "asker": "sofia@andino.com",
+    "question_es": "¿Va a haber un recorte de horas extra el año que viene?",
+    "question_en": "Will there be a cut in overtime next year?",
+    "target_doc_id": "X01",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "7,2%",
-    "canary": "ajuste salarial de 7,2% en enero",
-    "note": ""
+    "category": "cross_department",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "horas extra del 15%",
+        "en": "15% reduction in overtime"
+      }
+    ],
+    "canary_markers": [
+      "horas extra del 15%",
+      "15% reduction in overtime"
+    ],
+    "notes": "X01 admite finance y hr; Sofía solo tiene employee y sales."
   },
   {
     "id": "Q28",
-    "asker": "luis.ventas",
-    "question": "¿Cuánto saldo de caja tiene la empresa?",
+    "asker": "diego@andino.com",
+    "question_es": "¿Cuánto saldo de caja tiene la empresa?",
+    "question_en": "How much cash does the company have?",
     "target_doc_id": "F02",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "38,4",
-    "canary": "saldo de caja al 30/09 fue de $U 38,4 millones",
-    "note": ""
+    "category": "paraphrase",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "$U 38,4 millones",
+        "en": "UYU 38.4 million"
+      }
+    ],
+    "canary_markers": [
+      "38,4 millones",
+      "38.4 million"
+    ],
+    "notes": "Ventas consulta datos de tesorería."
   },
   {
     "id": "Q29",
-    "asker": "marta.operaciones",
-    "question": "¿Qué oportunidades tiene ventas en el pipeline?",
+    "asker": "visitor@andino.com",
+    "question_es": "¿Qué oportunidades tiene ventas en el pipeline?",
+    "question_en": "What opportunities does sales have in the pipeline?",
     "target_doc_id": "V08",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "Proyecto Zafiro",
-    "canary": "Proyecto Zafiro",
-    "note": ""
+    "category": "direct_factual",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "Proyecto Zafiro",
+        "en": "Project Zafiro"
+      }
+    ],
+    "canary_markers": [
+      "Proyecto Zafiro",
+      "Project Zafiro"
+    ],
+    "notes": "El visitante no puede acceder a nada interno."
   },
   {
     "id": "Q30",
-    "asker": "valeria.ventas",
-    "question": "¿Cuánto cobran en RR.HH.?",
-    "target_doc_id": "H01",
+    "asker": "visitor@andino.com",
+    "question_es": "¿Cuál es la clave del Wi-Fi de invitados?",
+    "question_en": "What is the guest Wi-Fi password?",
+    "target_doc_id": "G04",
     "type": "unauthorized",
-    "expected_behavior": "no revelar el dato ni confirmar que el documento existe; decir que no hay información disponible para su perfil",
-    "key_fact": "87.350",
-    "canary": "Marta Benítez (jefa de turno) cobra $U 87.350",
-    "note": ""
+    "category": "public_to_employees_only",
+    "expected_authorization": "DENY",
+    "expected_behavior": "refuse_without_confirming_existence",
+    "expected_behavior_es": "No revelar el dato restringido ni confirmar que el documento existe; responder que no hay información disponible para su perfil y, si corresponde, derivar al área responsable.",
+    "expected_behavior_en": "Do not reveal the restricted fact or confirm that the document exists; reply that no information is available for the user's profile and, where appropriate, refer them to the responsible department.",
+    "key_facts": [
+      {
+        "es": "AndinoVisita-2026",
+        "en": "AndinoVisita-2026"
+      }
+    ],
+    "canary_markers": [
+      "AndinoVisita-2026"
+    ],
+    "notes": "G04 es 'public' pero con allowed_roles ['employee']: el visitante (sin roles) queda DENY aunque la clave sea para visitas. El backend no debe recuperar G04; se espera derivar a recepción."
   }
 ]

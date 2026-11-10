@@ -1,63 +1,71 @@
 [
   {
-    "id": "ana.rrhh",
-    "name": "Ana Pereira",
+    "email": "sofia@andino.com",
+    "name": "Sofía Gómez",
+    "job_title": "Sales Representative",
     "roles": [
-      "empleado",
-      "rrhh"
+      "employee",
+      "sales"
     ],
-    "cargo": "Analista de RR.HH.",
-    "password_demo": "demo-1234"
+    "is_visitor": false
   },
   {
-    "id": "luis.ventas",
-    "name": "Luis Techera",
+    "email": "ramon@andino.com",
+    "name": "Ramón Rodríguez",
+    "job_title": "Chief Executive Officer",
     "roles": [
-      "empleado",
-      "ventas"
+      "employee",
+      "sales",
+      "finance",
+      "hr"
     ],
-    "cargo": "Ejecutivo comercial senior",
-    "password_demo": "demo-1234"
+    "is_visitor": false
   },
   {
-    "id": "valeria.ventas",
-    "name": "Valeria Cabrera",
+    "email": "martin@andino.com",
+    "name": "Martín Pérez",
+    "job_title": "Finance Analyst",
     "roles": [
-      "empleado",
-      "ventas"
+      "employee",
+      "finance"
     ],
-    "cargo": "Ejecutiva comercial",
-    "password_demo": "demo-1234"
+    "is_visitor": false
   },
   {
-    "id": "carla.finanzas",
-    "name": "Carla Núñez",
+    "email": "laura@andino.com",
+    "name": "Laura Fernández",
+    "job_title": "HR Manager",
     "roles": [
-      "empleado",
-      "finanzas"
+      "employee",
+      "hr"
     ],
-    "cargo": "Contadora",
-    "password_demo": "demo-1234"
+    "is_visitor": false
   },
   {
-    "id": "marta.operaciones",
-    "name": "Marta Benítez",
+    "email": "diego@andino.com",
+    "name": "Diego Martínez",
+    "job_title": "Sales Manager",
     "roles": [
-      "empleado"
+      "employee",
+      "sales"
     ],
-    "cargo": "Jefa de turno, depósito",
-    "password_demo": "demo-1234"
+    "is_visitor": false
   },
   {
-    "id": "diego.gerencia",
-    "name": "Diego Ferrán",
+    "email": "valentina@andino.com",
+    "name": "Valentina Silva",
+    "job_title": "Finance Manager",
     "roles": [
-      "empleado",
-      "ventas",
-      "finanzas",
-      "rrhh"
+      "employee",
+      "finance"
     ],
-    "cargo": "Gerente general",
-    "password_demo": "demo-1234"
+    "is_visitor": false
+  },
+  {
+    "email": "visitor@andino.com",
+    "name": "Visitor Andino",
+    "job_title": "External Visitor",
+    "roles": [],
+    "is_visitor": true
   }
 ]

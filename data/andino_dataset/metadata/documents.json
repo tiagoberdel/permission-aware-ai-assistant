@@ -1,0 +1,1245 @@
+[
+  {
+    "document_id": "G01",
+    "title": "Política de licencia anual",
+    "titles": {
+      "es": "Política de licencia anual",
+      "en": "Annual Leave Policy"
+    },
+    "area": "general",
+    "sensitivity": "public",
+    "allowed_roles": [
+      "employee"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-01-10",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/G01_general.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/G01_general.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "G02",
+    "title": "Código de conducta",
+    "titles": {
+      "es": "Código de conducta",
+      "en": "Code of Conduct"
+    },
+    "area": "general",
+    "sensitivity": "public",
+    "allowed_roles": [
+      "employee"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-01-10",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/G02_general.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/G02_general.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "G03",
+    "title": "Calendario de cierres y feriados internos",
+    "titles": {
+      "es": "Calendario de cierres y feriados internos",
+      "en": "Calendar of Closures and Internal Holidays"
+    },
+    "area": "general",
+    "sensitivity": "public",
+    "allowed_roles": [
+      "employee"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-09-01",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/G03_general.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/G03_general.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "G04",
+    "title": "Guía de bienvenida para nuevos empleados",
+    "titles": {
+      "es": "Guía de bienvenida para nuevos empleados",
+      "en": "Welcome Guide for New Employees"
+    },
+    "area": "general",
+    "sensitivity": "public",
+    "allowed_roles": [
+      "employee"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-02-02",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/docx/G04_general.docx",
+        "format": "docx"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/docx/G04_general.docx",
+        "format": "docx"
+      }
+    ]
+  },
+  {
+    "document_id": "G05",
+    "title": "Política de trabajo remoto",
+    "titles": {
+      "es": "Política de trabajo remoto",
+      "en": "Remote Work Policy"
+    },
+    "area": "general",
+    "sensitivity": "public",
+    "allowed_roles": [
+      "employee"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-03-15",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/G05_general.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/G05_general.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "G06",
+    "title": "Protocolo de seguridad en depósitos",
+    "titles": {
+      "es": "Protocolo de seguridad en depósitos",
+      "en": "Warehouse Safety Protocol"
+    },
+    "area": "general",
+    "sensitivity": "public",
+    "allowed_roles": [
+      "employee"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-04-20",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/G06_general.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/G06_general.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "G07",
+    "title": "Política de viáticos",
+    "titles": {
+      "es": "Política de viáticos",
+      "en": "Travel Allowance Policy"
+    },
+    "area": "general",
+    "sensitivity": "public",
+    "allowed_roles": [
+      "employee"
+    ],
+    "owner": "valentina@andino.com",
+    "created_at": "2026-05-05",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/G07_general.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/G07_general.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "G08",
+    "title": "Directorio de áreas e internos",
+    "titles": {
+      "es": "Directorio de áreas e internos",
+      "en": "Directory of Departments and Extensions"
+    },
+    "area": "general",
+    "sensitivity": "public",
+    "allowed_roles": [
+      "employee"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-06-01",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/md/G08_general.md",
+        "format": "md"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/md/G08_general.md",
+        "format": "md"
+      }
+    ]
+  },
+  {
+    "document_id": "G09",
+    "title": "Política de uso de sistemas",
+    "titles": {
+      "es": "Política de uso de sistemas",
+      "en": "Systems Use Policy"
+    },
+    "area": "general",
+    "sensitivity": "public",
+    "allowed_roles": [
+      "employee"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-06-10",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/G09_general.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/G09_general.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "G10",
+    "title": "Plan de emergencias y evacuación",
+    "titles": {
+      "es": "Plan de emergencias y evacuación",
+      "en": "Emergency and Evacuation Plan"
+    },
+    "area": "general",
+    "sensitivity": "public",
+    "allowed_roles": [
+      "employee"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-07-01",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/G10_general.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/G10_general.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "G11",
+    "title": "Preguntas frecuentes de TI",
+    "titles": {
+      "es": "Preguntas frecuentes de TI",
+      "en": "IT Frequently Asked Questions"
+    },
+    "area": "general",
+    "sensitivity": "public",
+    "allowed_roles": [
+      "employee"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-08-12",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/md/G11_general.md",
+        "format": "md"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/md/G11_general.md",
+        "format": "md"
+      }
+    ]
+  },
+  {
+    "document_id": "V01",
+    "title": "Manual de ventas",
+    "titles": {
+      "es": "Manual de ventas",
+      "en": "Sales Manual"
+    },
+    "area": "sales",
+    "sensitivity": "internal",
+    "allowed_roles": [
+      "sales"
+    ],
+    "owner": "diego@andino.com",
+    "created_at": "2026-02-20",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/docx/V01_ventas.docx",
+        "format": "docx"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/docx/V01_sales.docx",
+        "format": "docx"
+      }
+    ]
+  },
+  {
+    "document_id": "V02",
+    "title": "Lista de tarifas vigentes (septiembre 2026)",
+    "titles": {
+      "es": "Lista de tarifas vigentes (septiembre 2026)",
+      "en": "Current Rate List (September 2026)"
+    },
+    "area": "sales",
+    "sensitivity": "internal",
+    "allowed_roles": [
+      "sales"
+    ],
+    "owner": "diego@andino.com",
+    "created_at": "2026-09-01",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/md/V02_ventas.md",
+        "format": "md"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/md/V02_sales.md",
+        "format": "md"
+      }
+    ]
+  },
+  {
+    "document_id": "V03",
+    "title": "Política de descuentos",
+    "titles": {
+      "es": "Política de descuentos",
+      "en": "Discount Policy"
+    },
+    "area": "sales",
+    "sensitivity": "internal",
+    "allowed_roles": [
+      "sales"
+    ],
+    "owner": "diego@andino.com",
+    "created_at": "2026-03-10",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/V03_ventas.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/V03_sales.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "V04",
+    "title": "Plan de comisiones 2026-2027",
+    "titles": {
+      "es": "Plan de comisiones 2026-2027",
+      "en": "Commission Plan 2026-2027"
+    },
+    "area": "sales",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "sales"
+    ],
+    "owner": "ramon@andino.com",
+    "created_at": "2026-01-25",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/docx/V04_ventas.docx",
+        "format": "docx"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/docx/V04_sales.docx",
+        "format": "docx"
+      }
+    ]
+  },
+  {
+    "document_id": "V05",
+    "title": "Cuentas clave",
+    "titles": {
+      "es": "Cuentas clave",
+      "en": "Key Accounts"
+    },
+    "area": "sales",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "sales"
+    ],
+    "owner": "diego@andino.com",
+    "created_at": "2026-08-30",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/docx/V05_ventas.docx",
+        "format": "docx"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/docx/V05_sales.docx",
+        "format": "docx"
+      }
+    ]
+  },
+  {
+    "document_id": "V06",
+    "title": "Contrato modelo de servicios de transporte",
+    "titles": {
+      "es": "Contrato modelo de servicios de transporte",
+      "en": "Model Transport Services Contract"
+    },
+    "area": "sales",
+    "sensitivity": "internal",
+    "allowed_roles": [
+      "sales"
+    ],
+    "owner": "diego@andino.com",
+    "created_at": "2026-04-01",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/V06_ventas.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/V06_sales.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "V07",
+    "title": "Informe de ventas, tercer trimestre 2026",
+    "titles": {
+      "es": "Informe de ventas, tercer trimestre 2026",
+      "en": "Sales Report, Third Quarter 2026"
+    },
+    "area": "sales",
+    "sensitivity": "internal",
+    "allowed_roles": [
+      "sales"
+    ],
+    "owner": "diego@andino.com",
+    "created_at": "2026-10-05",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/V07_ventas.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/V07_sales.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "V08",
+    "title": "Pipeline de oportunidades",
+    "titles": {
+      "es": "Pipeline de oportunidades",
+      "en": "Opportunity Pipeline"
+    },
+    "area": "sales",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "sales"
+    ],
+    "owner": "diego@andino.com",
+    "created_at": "2026-10-02",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/md/V08_ventas.md",
+        "format": "md"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/md/V08_sales.md",
+        "format": "md"
+      }
+    ]
+  },
+  {
+    "document_id": "V09",
+    "title": "Mensaje reenviado de cliente (Distribuidora Norte)",
+    "titles": {
+      "es": "Mensaje reenviado de cliente (Distribuidora Norte)",
+      "en": "Forwarded Customer Message (Distribuidora Norte)"
+    },
+    "area": "sales",
+    "sensitivity": "internal",
+    "allowed_roles": [
+      "sales"
+    ],
+    "owner": "sofia@andino.com",
+    "created_at": "2026-10-09",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/md/V09_ventas.md",
+        "format": "md"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/md/V09_sales.md",
+        "format": "md"
+      }
+    ]
+  },
+  {
+    "document_id": "F01",
+    "title": "Presupuesto anual 2027",
+    "titles": {
+      "es": "Presupuesto anual 2027",
+      "en": "Annual Budget 2027"
+    },
+    "area": "finance",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "finance"
+    ],
+    "owner": "valentina@andino.com",
+    "created_at": "2026-10-01",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/F01_finanzas.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/F01_finance.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "F02",
+    "title": "Flujo de caja, septiembre 2026",
+    "titles": {
+      "es": "Flujo de caja, septiembre 2026",
+      "en": "Cash Flow, September 2026"
+    },
+    "area": "finance",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "finance"
+    ],
+    "owner": "martin@andino.com",
+    "created_at": "2026-10-03",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/F02_finanzas.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/F02_finance.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "F03",
+    "title": "Política de aprobación de gastos",
+    "titles": {
+      "es": "Política de aprobación de gastos",
+      "en": "Expense Approval Policy"
+    },
+    "area": "finance",
+    "sensitivity": "internal",
+    "allowed_roles": [
+      "finance"
+    ],
+    "owner": "valentina@andino.com",
+    "created_at": "2026-02-15",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/docx/F03_finanzas.docx",
+        "format": "docx"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/docx/F03_finance.docx",
+        "format": "docx"
+      }
+    ]
+  },
+  {
+    "document_id": "F04",
+    "title": "Cuentas por pagar, proveedores principales",
+    "titles": {
+      "es": "Cuentas por pagar, proveedores principales",
+      "en": "Accounts Payable, Main Suppliers"
+    },
+    "area": "finance",
+    "sensitivity": "internal",
+    "allowed_roles": [
+      "finance"
+    ],
+    "owner": "martin@andino.com",
+    "created_at": "2026-09-30",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/md/F04_finanzas.md",
+        "format": "md"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/md/F04_finance.md",
+        "format": "md"
+      }
+    ]
+  },
+  {
+    "document_id": "F05",
+    "title": "Margen por línea de negocio",
+    "titles": {
+      "es": "Margen por línea de negocio",
+      "en": "Margin by Business Line"
+    },
+    "area": "finance",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "finance"
+    ],
+    "owner": "martin@andino.com",
+    "created_at": "2026-09-20",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/F05_finanzas.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/F05_finance.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "F06",
+    "title": "Informe de auditoría interna 2026",
+    "titles": {
+      "es": "Informe de auditoría interna 2026",
+      "en": "Internal Audit Report 2026"
+    },
+    "area": "finance",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "finance"
+    ],
+    "owner": "ramon@andino.com",
+    "created_at": "2026-07-30",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/F06_finanzas.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/F06_finance.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "F07",
+    "title": "Plan de inversión en flota 2027",
+    "titles": {
+      "es": "Plan de inversión en flota 2027",
+      "en": "Fleet Investment Plan 2027"
+    },
+    "area": "finance",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "finance"
+    ],
+    "owner": "ramon@andino.com",
+    "created_at": "2026-09-25",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/F07_finanzas.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/F07_finance.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "F08",
+    "title": "Calendario de cierre contable, septiembre 2026",
+    "titles": {
+      "es": "Calendario de cierre contable, septiembre 2026",
+      "en": "Accounting Close Calendar, September 2026"
+    },
+    "area": "finance",
+    "sensitivity": "internal",
+    "allowed_roles": [
+      "finance"
+    ],
+    "owner": "martin@andino.com",
+    "created_at": "2026-10-08",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/md/F08_finanzas.md",
+        "format": "md"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/md/F08_finance.md",
+        "format": "md"
+      }
+    ]
+  },
+  {
+    "document_id": "F09",
+    "title": "Nota de proveedor reenviada (Neumáticos Uruguay)",
+    "titles": {
+      "es": "Nota de proveedor reenviada (Neumáticos Uruguay)",
+      "en": "Forwarded Supplier Note (Neumáticos Uruguay)"
+    },
+    "area": "finance",
+    "sensitivity": "internal",
+    "allowed_roles": [
+      "finance"
+    ],
+    "owner": "martin@andino.com",
+    "created_at": "2026-10-10",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/md/F09_finanzas.md",
+        "format": "md"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/md/F09_finance.md",
+        "format": "md"
+      }
+    ]
+  },
+  {
+    "document_id": "H01",
+    "title": "Escala salarial vigente (septiembre 2026)",
+    "titles": {
+      "es": "Escala salarial vigente (septiembre 2026)",
+      "en": "Current Salary Scale (September 2026)"
+    },
+    "area": "hr",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "hr"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-09-15",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/H01_rrhh.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/H01_hr.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "H02",
+    "title": "Evaluaciones de desempeño 2026",
+    "titles": {
+      "es": "Evaluaciones de desempeño 2026",
+      "en": "Performance Reviews 2026"
+    },
+    "area": "hr",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "hr"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-08-20",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/H02_rrhh.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/H02_hr.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "H03",
+    "title": "Plan de reestructura 2027",
+    "titles": {
+      "es": "Plan de reestructura 2027",
+      "en": "Restructuring Plan 2027"
+    },
+    "area": "hr",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "hr"
+    ],
+    "owner": "ramon@andino.com",
+    "created_at": "2026-10-06",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/docx/H03_rrhh.docx",
+        "format": "docx"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/docx/H03_hr.docx",
+        "format": "docx"
+      }
+    ]
+  },
+  {
+    "document_id": "H04",
+    "title": "Expediente disciplinario DISC-0312",
+    "titles": {
+      "es": "Expediente disciplinario DISC-0312",
+      "en": "Disciplinary File DISC-0312"
+    },
+    "area": "hr",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "hr"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-07-18",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/docx/H04_rrhh.docx",
+        "format": "docx"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/docx/H04_hr.docx",
+        "format": "docx"
+      }
+    ]
+  },
+  {
+    "document_id": "H05",
+    "title": "Plan de capacitación 2027",
+    "titles": {
+      "es": "Plan de capacitación 2027",
+      "en": "Training Plan 2027"
+    },
+    "area": "hr",
+    "sensitivity": "internal",
+    "allowed_roles": [
+      "hr"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-10-04",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/docx/H05_rrhh.docx",
+        "format": "docx"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/docx/H05_hr.docx",
+        "format": "docx"
+      }
+    ]
+  },
+  {
+    "document_id": "H06",
+    "title": "Encuesta de clima laboral 2026",
+    "titles": {
+      "es": "Encuesta de clima laboral 2026",
+      "en": "Workplace Climate Survey 2026"
+    },
+    "area": "hr",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "hr"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-09-28",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/H06_rrhh.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/H06_hr.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "H07",
+    "title": "Vacantes abiertas",
+    "titles": {
+      "es": "Vacantes abiertas",
+      "en": "Open Vacancies"
+    },
+    "area": "hr",
+    "sensitivity": "internal",
+    "allowed_roles": [
+      "hr"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-10-07",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/md/H07_rrhh.md",
+        "format": "md"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/md/H07_hr.md",
+        "format": "md"
+      }
+    ]
+  },
+  {
+    "document_id": "H08",
+    "title": "Procedimiento de certificados médicos",
+    "titles": {
+      "es": "Procedimiento de certificados médicos",
+      "en": "Medical Certificate Procedure"
+    },
+    "area": "hr",
+    "sensitivity": "internal",
+    "allowed_roles": [
+      "hr"
+    ],
+    "owner": "laura@andino.com",
+    "created_at": "2026-05-22",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/md/H08_rrhh.md",
+        "format": "md"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/md/H08_hr.md",
+        "format": "md"
+      }
+    ]
+  },
+  {
+    "document_id": "X01",
+    "title": "Acta del Comité de Dirección, octubre 2026",
+    "titles": {
+      "es": "Acta del Comité de Dirección, octubre 2026",
+      "en": "Management Committee Minutes, October 2026"
+    },
+    "area": "management",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "finance",
+      "hr"
+    ],
+    "owner": "ramon@andino.com",
+    "created_at": "2026-10-14",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/docx/X01_direccion.docx",
+        "format": "docx"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/docx/X01_management.docx",
+        "format": "docx"
+      }
+    ]
+  },
+  {
+    "document_id": "X02",
+    "title": "Cuotas de venta y presupuesto comercial 2027",
+    "titles": {
+      "es": "Cuotas de venta y presupuesto comercial 2027",
+      "en": "Sales Quotas and Commercial Budget 2027"
+    },
+    "area": "management",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "sales",
+      "finance"
+    ],
+    "owner": "ramon@andino.com",
+    "created_at": "2026-10-11",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/pdf/X02_direccion.pdf",
+        "format": "pdf"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/pdf/X02_management.pdf",
+        "format": "pdf"
+      }
+    ]
+  },
+  {
+    "document_id": "X03",
+    "title": "Plan de ajuste salarial 2027",
+    "titles": {
+      "es": "Plan de ajuste salarial 2027",
+      "en": "Salary Adjustment Plan 2027"
+    },
+    "area": "management",
+    "sensitivity": "confidential",
+    "allowed_roles": [
+      "hr",
+      "finance"
+    ],
+    "owner": "ramon@andino.com",
+    "created_at": "2026-10-12",
+    "original_language": "es",
+    "translations": [
+      "en"
+    ],
+    "files": [
+      {
+        "language": "es",
+        "path": "docs/es/docx/X03_direccion.docx",
+        "format": "docx"
+      },
+      {
+        "language": "en",
+        "path": "docs/en/docx/X03_management.docx",
+        "format": "docx"
+      }
+    ]
+  }
+]

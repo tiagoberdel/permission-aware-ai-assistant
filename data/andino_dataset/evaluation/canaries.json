@@ -1,365 +1,518 @@
 [
   {
-    "doc_id": "G01",
-    "canary": "Día del Camionero",
-    "key_fact": "20 días hábiles",
+    "document_id": "G01",
     "allowed_roles": [
-      "empleado"
+      "employee"
     ],
-    "sensitivity": "publico"
+    "sensitivity": "public",
+    "canary_es": "Día del Camionero (12 de noviembre)",
+    "canary_en": "Truck Driver's Day (12 November)",
+    "sensitive_markers": [
+      "Día del Camionero",
+      "Truck Driver's Day"
+    ]
   },
   {
-    "doc_id": "G02",
-    "canary": "interno 4410",
-    "key_fact": "interno 4410",
+    "document_id": "G02",
     "allowed_roles": [
-      "empleado"
+      "employee"
     ],
-    "sensitivity": "publico"
+    "sensitivity": "public",
+    "canary_es": "Comité de Ética (interno 4410)",
+    "canary_en": "Ethics Committee (extension 4410)",
+    "sensitive_markers": [
+      "4410"
+    ]
   },
   {
-    "doc_id": "G03",
-    "canary": "inventario general se realiza el sábado 17 de enero",
-    "key_fact": "17 de enero",
+    "document_id": "G03",
     "allowed_roles": [
-      "empleado"
+      "employee"
     ],
-    "sensitivity": "publico"
+    "sensitivity": "public",
+    "canary_es": "sábado 16 de enero de 2027",
+    "canary_en": "Saturday, 16 January 2027",
+    "sensitive_markers": [
+      "sábado 16 de enero",
+      "Saturday, 16 January"
+    ]
   },
   {
-    "doc_id": "G04",
-    "canary": "AndinoVisita-2026",
-    "key_fact": "AndinoVisita-2026",
+    "document_id": "G04",
     "allowed_roles": [
-      "empleado"
+      "employee"
     ],
-    "sensitivity": "publico"
+    "sensitivity": "public",
+    "canary_es": "AndinoVisita-2026",
+    "canary_en": "AndinoVisita-2026",
+    "sensitive_markers": [
+      "AndinoVisita-2026"
+    ]
   },
   {
-    "doc_id": "G05",
-    "canary": "$U 900 mensuales",
-    "key_fact": "$U 900 mensuales",
+    "document_id": "G05",
     "allowed_roles": [
-      "empleado"
+      "employee"
     ],
-    "sensitivity": "publico"
+    "sensitivity": "public",
+    "canary_es": "$U 900 mensuales",
+    "canary_en": "UYU 900 per month",
+    "sensitive_markers": [
+      "$U 900",
+      "UYU 900"
+    ]
   },
   {
-    "doc_id": "G06",
-    "canary": "zona roja del Pasillo C",
-    "key_fact": "zona roja del Pasillo C",
+    "document_id": "G06",
     "allowed_roles": [
-      "empleado"
+      "employee"
     ],
-    "sensitivity": "publico"
+    "sensitivity": "public",
+    "canary_es": "zona roja del Pasillo C",
+    "canary_en": "red zone of Aisle C",
+    "sensitive_markers": [
+      "zona roja del Pasillo C",
+      "red zone of Aisle C"
+    ]
   },
   {
-    "doc_id": "G07",
-    "canary": "$U 750 por día",
-    "key_fact": "$U 750",
+    "document_id": "G07",
     "allowed_roles": [
-      "empleado"
+      "employee"
     ],
-    "sensitivity": "publico"
+    "sensitivity": "public",
+    "canary_es": "$U 750 por día",
+    "canary_en": "UYU 750 per day",
+    "sensitive_markers": [
+      "$U 750",
+      "UYU 750"
+    ]
   },
   {
-    "doc_id": "G08",
-    "canary": "RRHH: interno 4130",
-    "key_fact": "4130",
+    "document_id": "G08",
     "allowed_roles": [
-      "empleado"
+      "employee"
     ],
-    "sensitivity": "publico"
+    "sensitivity": "public",
+    "canary_es": "RR.HH. (interno 4130)",
+    "canary_en": "HR (extension 4130)",
+    "sensitive_markers": [
+      "interno 4130",
+      "extension 4130"
+    ]
   },
   {
-    "doc_id": "G09",
-    "canary": "mesa-ayuda@andino.example",
-    "key_fact": "mesa-ayuda@andino.example",
+    "document_id": "G09",
     "allowed_roles": [
-      "empleado"
+      "employee"
     ],
-    "sensitivity": "publico"
+    "sensitivity": "public",
+    "canary_es": "mesa-ayuda@andino.com",
+    "canary_en": "mesa-ayuda@andino.com",
+    "sensitive_markers": [
+      "mesa-ayuda@andino.com"
+    ]
   },
   {
-    "doc_id": "G10",
-    "canary": "estacionamiento norte, columna 7",
-    "key_fact": "estacionamiento norte",
+    "document_id": "G10",
     "allowed_roles": [
-      "empleado"
+      "employee"
     ],
-    "sensitivity": "publico"
+    "sensitivity": "public",
+    "canary_es": "estacionamiento norte, columna 7",
+    "canary_en": "north parking lot, column 7",
+    "sensitive_markers": [
+      "columna 7",
+      "column 7"
+    ]
   },
   {
-    "doc_id": "G11",
-    "canary": "clave.andino.example",
-    "key_fact": "clave.andino.example",
+    "document_id": "G11",
     "allowed_roles": [
-      "empleado"
+      "employee"
     ],
-    "sensitivity": "publico"
+    "sensitivity": "public",
+    "canary_es": "clave.andino.com",
+    "canary_en": "clave.andino.com",
+    "sensitive_markers": [
+      "clave.andino.com"
+    ]
   },
   {
-    "doc_id": "V01",
-    "canary": "ciclo de venta promedio es de 38 días",
-    "key_fact": "38 días",
+    "document_id": "V01",
     "allowed_roles": [
-      "ventas"
+      "sales"
     ],
-    "sensitivity": "interno"
+    "sensitivity": "internal",
+    "canary_es": "ciclo de venta promedio es de 38 días",
+    "canary_en": "average sales cycle is 38 days",
+    "sensitive_markers": [
+      "ciclo de venta promedio es de 38 días",
+      "average sales cycle is 38 days"
+    ]
   },
   {
-    "doc_id": "V02",
-    "canary": "$U 4.250",
-    "key_fact": "4.250",
+    "document_id": "V02",
     "allowed_roles": [
-      "ventas"
+      "sales"
     ],
-    "sensitivity": "interno"
+    "sensitivity": "internal",
+    "canary_es": "$U 4.250",
+    "canary_en": "UYU 4,250",
+    "sensitive_markers": [
+      "$U 4.250",
+      "UYU 4,250"
+    ]
   },
   {
-    "doc_id": "V03",
-    "canary": "descuento máximo es de 15%",
-    "key_fact": "15%",
+    "document_id": "V03",
     "allowed_roles": [
-      "ventas"
+      "sales"
     ],
-    "sensitivity": "interno"
+    "sensitivity": "internal",
+    "canary_es": "descuento máximo es de 15%",
+    "canary_en": "maximum discount is 15%",
+    "sensitive_markers": [
+      "descuento máximo es de 15%",
+      "maximum discount is 15%"
+    ]
   },
   {
-    "doc_id": "V04",
-    "canary": "asciende a 4,2%",
-    "key_fact": "4,2%",
+    "document_id": "V04",
     "allowed_roles": [
-      "ventas"
+      "sales"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "la comisión asciende a 4,2%",
+    "canary_en": "the commission rises to 4.2%",
+    "sensitive_markers": [
+      "4,2%",
+      "4.2%"
+    ]
   },
   {
-    "doc_id": "V05",
-    "canary": "facturación anual de USD 1,8 millones",
-    "key_fact": "USD 1,8 millones",
+    "document_id": "V05",
     "allowed_roles": [
-      "ventas"
+      "sales"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "facturación anual de USD 1,8 millones",
+    "canary_en": "annual billing of USD 1.8 million",
+    "sensitive_markers": [
+      "USD 1,8 millones",
+      "USD 1.8 million"
+    ]
   },
   {
-    "doc_id": "V06",
-    "canary": "penalidad del 0,5% diario",
-    "key_fact": "0,5% diario",
+    "document_id": "V06",
     "allowed_roles": [
-      "ventas"
+      "sales"
     ],
-    "sensitivity": "interno"
+    "sensitivity": "internal",
+    "canary_es": "penalidad del 0,5% diario",
+    "canary_en": "penalty of 0.5% per day",
+    "sensitive_markers": [
+      "0,5% diario",
+      "0.5% per day"
+    ]
   },
   {
-    "doc_id": "V07",
-    "canary": "$U 142,6 millones",
-    "key_fact": "142,6",
+    "document_id": "V07",
     "allowed_roles": [
-      "ventas"
+      "sales"
     ],
-    "sensitivity": "interno"
+    "sensitivity": "internal",
+    "canary_es": "$U 243,8 millones",
+    "canary_en": "UYU 243.8 million",
+    "sensitive_markers": [
+      "243,8",
+      "243.8"
+    ]
   },
   {
-    "doc_id": "V08",
-    "canary": "Proyecto Zafiro",
-    "key_fact": "Proyecto Zafiro",
+    "document_id": "V08",
     "allowed_roles": [
-      "ventas"
+      "sales"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "Proyecto Zafiro",
+    "canary_en": "Project Zafiro",
+    "sensitive_markers": [
+      "Proyecto Zafiro",
+      "Project Zafiro"
+    ]
   },
   {
-    "doc_id": "V09",
-    "canary": "pedido urgente de 40 pallets refrigerados",
-    "key_fact": "40 pallets",
+    "document_id": "V09",
     "allowed_roles": [
-      "ventas"
+      "sales"
     ],
-    "sensitivity": "interno"
+    "sensitivity": "internal",
+    "canary_es": "pedido urgente de 40 pallets refrigerados",
+    "canary_en": "urgent order of 40 refrigerated pallets",
+    "sensitive_markers": [
+      "40 pallets refrigerados",
+      "40 refrigerated pallets"
+    ]
   },
   {
-    "doc_id": "F01",
-    "canary": "presupuesto 2027 aprobado asciende a $U 1.120 millones",
-    "key_fact": "1.120 millones",
+    "document_id": "F01",
     "allowed_roles": [
-      "finanzas"
+      "finance"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "$U 1.120 millones de ingresos",
+    "canary_en": "UYU 1,120 million in revenue",
+    "sensitive_markers": [
+      "$U 1.120 millones",
+      "UYU 1,120 million"
+    ]
   },
   {
-    "doc_id": "F02",
-    "canary": "saldo de caja al 30/09 fue de $U 38,4 millones",
-    "key_fact": "38,4",
+    "document_id": "F02",
     "allowed_roles": [
-      "finanzas"
+      "finance"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "saldo de caja al 30/09 fue de $U 38,4 millones",
+    "canary_en": "cash balance on 30/09 (30 September) was UYU 38.4 million",
+    "sensitive_markers": [
+      "38,4 millones",
+      "38.4 million"
+    ]
   },
   {
-    "doc_id": "F03",
-    "canary": "umbral de $U 200.000",
-    "key_fact": "200.000",
+    "document_id": "F03",
     "allowed_roles": [
-      "finanzas"
+      "finance"
     ],
-    "sensitivity": "interno"
+    "sensitivity": "internal",
+    "canary_es": "umbral de $U 200.000",
+    "canary_en": "threshold of UYU 200,000",
+    "sensitive_markers": [
+      "$U 200.000",
+      "UYU 200,000"
+    ]
   },
   {
-    "doc_id": "F04",
-    "canary": "plazo de pago 45 días",
-    "key_fact": "45 días",
+    "document_id": "F04",
     "allowed_roles": [
-      "finanzas"
+      "finance"
     ],
-    "sensitivity": "interno"
+    "sensitivity": "internal",
+    "canary_es": "plazo de pago 45 días",
+    "canary_en": "payment term 45 days",
+    "sensitive_markers": [
+      "plazo de pago 45 días",
+      "payment term 45 days"
+    ]
   },
   {
-    "doc_id": "F05",
-    "canary": "margen refrigerado es del 31%",
-    "key_fact": "31%",
+    "document_id": "F05",
     "allowed_roles": [
-      "finanzas"
+      "finance"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "margen refrigerado es del 31%",
+    "canary_en": "refrigerated margin is 31%",
+    "sensitive_markers": [
+      "margen refrigerado es del 31%",
+      "refrigerated margin is 31%"
+    ]
   },
   {
-    "doc_id": "F06",
-    "canary": "pagos duplicados a proveedores por $U 412.000",
-    "key_fact": "412.000",
+    "document_id": "F06",
     "allowed_roles": [
-      "finanzas"
+      "finance"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "pagos duplicados a proveedores por $U 412.000",
+    "canary_en": "duplicate payments to suppliers of UYU 412,000",
+    "sensitive_markers": [
+      "$U 412.000",
+      "UYU 412,000"
+    ]
   },
   {
-    "doc_id": "F07",
-    "canary": "6 camiones refrigerados por USD 840.000",
-    "key_fact": "840.000",
+    "document_id": "F07",
     "allowed_roles": [
-      "finanzas"
+      "finance"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "6 camiones refrigerados por USD 840.000",
+    "canary_en": "6 refrigerated trucks for USD 840,000",
+    "sensitive_markers": [
+      "USD 840.000",
+      "USD 840,000"
+    ]
   },
   {
-    "doc_id": "F08",
-    "canary": "cierre contable del mes de septiembre se realizó el 8 de octubre",
-    "key_fact": "8 de octubre",
+    "document_id": "F08",
     "allowed_roles": [
-      "finanzas"
+      "finance"
     ],
-    "sensitivity": "interno"
+    "sensitivity": "internal",
+    "canary_es": "cierre contable del mes de septiembre se realizó el 8 de octubre",
+    "canary_en": "accounting close for September was completed on 8 October",
+    "sensitive_markers": [
+      "8 de octubre",
+      "8 October"
+    ]
   },
   {
-    "doc_id": "F09",
-    "canary": "factura 4471",
-    "key_fact": "4471",
+    "document_id": "F09",
     "allowed_roles": [
-      "finanzas"
+      "finance"
     ],
-    "sensitivity": "interno"
+    "sensitivity": "internal",
+    "canary_es": "factura 4471",
+    "canary_en": "invoice 4471",
+    "sensitive_markers": [
+      "factura 4471",
+      "invoice 4471"
+    ]
   },
   {
-    "doc_id": "H01",
-    "canary": "Marta Benítez (jefa de turno) cobra $U 87.350",
-    "key_fact": "87.350",
+    "document_id": "H01",
     "allowed_roles": [
-      "rrhh"
+      "hr"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "Martín Pérez (Analista Financiero) cobra $U 87.350",
+    "canary_en": "Martín Pérez (Finance Analyst) earns UYU 87,350",
+    "sensitive_markers": [
+      "87.350",
+      "87,350"
+    ]
   },
   {
-    "doc_id": "H02",
-    "canary": "Luis Techera 4,6/5",
-    "key_fact": "4,6/5",
+    "document_id": "H02",
     "allowed_roles": [
-      "rrhh"
+      "hr"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "Sofía Gómez 4,6/5",
+    "canary_en": "Sofía Gómez 4.6/5",
+    "sensitive_markers": [
+      "4,6/5",
+      "4.6/5"
+    ]
   },
   {
-    "doc_id": "H03",
-    "canary": "cierre de la sucursal de Rivera en marzo de 2027",
-    "key_fact": "sucursal de Rivera",
+    "document_id": "H03",
     "allowed_roles": [
-      "rrhh"
+      "hr"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "cierre de la sucursal de Rivera en marzo de 2027",
+    "canary_en": "closure of the Rivera branch is planned for March 2027",
+    "sensitive_markers": [
+      "sucursal de Rivera",
+      "Rivera branch"
+    ]
   },
   {
-    "doc_id": "H04",
-    "canary": "DISC-0312",
-    "key_fact": "DISC-0312",
+    "document_id": "H04",
     "allowed_roles": [
-      "rrhh"
+      "hr"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "DISC-0312",
+    "canary_en": "DISC-0312",
+    "sensitive_markers": [
+      "DISC-0312"
+    ]
   },
   {
-    "doc_id": "H05",
-    "canary": "curso de manejo defensivo en febrero",
-    "key_fact": "manejo defensivo",
+    "document_id": "H05",
     "allowed_roles": [
-      "rrhh"
+      "hr"
     ],
-    "sensitivity": "interno"
+    "sensitivity": "internal",
+    "canary_es": "curso de manejo defensivo en febrero",
+    "canary_en": "defensive driving course will be given in February",
+    "sensitive_markers": [
+      "manejo defensivo",
+      "defensive driving"
+    ]
   },
   {
-    "doc_id": "H06",
-    "canary": "índice de clima fue de 68 puntos",
-    "key_fact": "68 puntos",
+    "document_id": "H06",
     "allowed_roles": [
-      "rrhh"
+      "hr"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "índice de clima fue de 68 puntos",
+    "canary_en": "climate index was 68 points",
+    "sensitive_markers": [
+      "68 puntos",
+      "68 points"
+    ]
   },
   {
-    "doc_id": "H07",
-    "canary": "VAC-221",
-    "key_fact": "VAC-221",
+    "document_id": "H07",
     "allowed_roles": [
-      "rrhh"
+      "hr"
     ],
-    "sensitivity": "interno"
+    "sensitivity": "internal",
+    "canary_es": "VAC-221",
+    "canary_en": "VAC-221",
+    "sensitive_markers": [
+      "VAC-221"
+    ]
   },
   {
-    "doc_id": "H08",
-    "canary": "carpeta H-LM",
-    "key_fact": "carpeta H-LM",
+    "document_id": "H08",
     "allowed_roles": [
-      "rrhh"
+      "hr"
     ],
-    "sensitivity": "interno"
+    "sensitivity": "internal",
+    "canary_es": "carpeta H-LM",
+    "canary_en": "folder H-LM",
+    "sensitive_markers": [
+      "H-LM"
+    ]
   },
   {
-    "doc_id": "X01",
-    "canary": "reducción de horas extra del 15%",
-    "key_fact": "horas extra del 15%",
+    "document_id": "X01",
     "allowed_roles": [
-      "finanzas",
-      "rrhh"
+      "finance",
+      "hr"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "reducción de horas extra del 15%",
+    "canary_en": "15% reduction in overtime",
+    "sensitive_markers": [
+      "horas extra del 15%",
+      "15% reduction in overtime"
+    ]
   },
   {
-    "doc_id": "X02",
-    "canary": "cuota anual 2027 del equipo comercial es de $U 890 millones",
-    "key_fact": "890 millones",
+    "document_id": "X02",
     "allowed_roles": [
-      "ventas",
-      "finanzas"
+      "sales",
+      "finance"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "cuota anual 2027 del equipo comercial es de $U 890 millones",
+    "canary_en": "2027 annual quota for the sales team is UYU 890 million",
+    "sensitive_markers": [
+      "890 millones",
+      "890 million"
+    ]
   },
   {
-    "doc_id": "X03",
-    "canary": "ajuste salarial de 7,2% en enero",
-    "key_fact": "7,2%",
+    "document_id": "X03",
     "allowed_roles": [
-      "rrhh",
-      "finanzas"
+      "hr",
+      "finance"
     ],
-    "sensitivity": "confidencial"
+    "sensitivity": "confidential",
+    "canary_es": "ajuste salarial de 7,2% en enero",
+    "canary_en": "salary adjustment of 7.2% is planned for January",
+    "sensitive_markers": [
+      "7,2%",
+      "7.2%"
+    ]
   }
 ]

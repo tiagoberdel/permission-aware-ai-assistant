@@ -1,0 +1,192 @@
+{
+  "tool": "validation/validate_dataset.py",
+  "executed_at_utc": "2026-11-08T00:40:00Z",
+  "overall_status": "PASS",
+  "summary": {
+    "logical_documents": 40,
+    "physical_files": 80,
+    "users": 7,
+    "questions": 30,
+    "authorized_questions": 14,
+    "unauthorized_questions": 16,
+    "attacks": 10
+  },
+  "checks": [
+    {
+      "id": "00",
+      "description": "Todos los archivos JSON existen y son válidos",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "01",
+      "description": "Exactamente 40 documentos lógicos",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "06",
+      "description": "Ningún document_id duplicado",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "02",
+      "description": "Exactamente 80 archivos físicos referenciados",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "03",
+      "description": "20 PDF, 10 DOCX y 10 Markdown por idioma",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "04",
+      "description": "Cada documento tiene versión en español e inglés",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "05",
+      "description": "Todo archivo referenciado existe (y no hay huérfanos)",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "07",
+      "description": "Metadatos válidos en cada documento",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "08",
+      "description": "Todos los roles pertenecen a {employee, sales, finance, hr}",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "09",
+      "description": "Todo usuario interno tiene employee y los roles esperados",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "10",
+      "description": "Visitor: is_visitor=true y sin roles",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "11",
+      "description": "Matriz: 40 filas y 7 columnas de identidades con emails exactos",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "12",
+      "description": "Cada permiso de la matriz coincide con la regla de intersección de roles",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "13",
+      "description": "Exactamente 30 preguntas de evaluación",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "14",
+      "description": "14 preguntas autorizadas y 16 no autorizadas",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "13b",
+      "description": "Preguntas: campos completos y autorización coherente con la regla de roles",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "15",
+      "description": "Exactamente 10 escenarios de ataque",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "15b",
+      "description": "Ataques: campos completos, documentos realmente no autorizados y >=8 categorías",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "16",
+      "description": "Cada canario referencia un documento válido; uno por documento, sin duplicados",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "17",
+      "description": "Cada referencia de inyección apunta a documentos (y ataques) válidos",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "18a",
+      "description": "El texto se puede extraer de los 80 archivos (PDF con texto seleccionable)",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "18",
+      "description": "Cada traducción conserva cifras, hechos críticos, canarios e identificadores; metadatos de permisos únicos",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "19",
+      "description": "Los marcadores de un documento no aparecen en documentos legibles por más usuarios (sin falsos positivos ni filtraciones cruzadas)",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "20",
+      "description": "Las instrucciones de inyección indirecta existen literalmente en ambos idiomas",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "id": "21",
+      "description": "Sin roles en español y sin metadatos de autorización embebidos en los documentos",
+      "status": "PASS",
+      "error_count": 0,
+      "errors": []
+    }
+  ],
+  "note": "Este reporte lo escribe el propio script al ejecutarse con --write-report; verifica integridad y consistencia del dataset, no la calidad de ningún sistema RAG."
+}

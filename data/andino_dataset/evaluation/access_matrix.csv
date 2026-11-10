@@ -1,41 +1,41 @@
-doc_id,title,sensitivity,allowed_roles,ana.rrhh,luis.ventas,valeria.ventas,carla.finanzas,marta.operaciones,diego.gerencia
-G01,Política de licencia anual,publico,empleado,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW
-G02,Código de conducta,publico,empleado,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW
-G03,Calendario de cierres y feriados internos,publico,empleado,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW
-G04,Guía de bienvenida para nuevos empleados,publico,empleado,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW
-G05,Política de trabajo remoto,publico,empleado,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW
-G06,Protocolo de seguridad en depósitos,publico,empleado,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW
-G07,Política de viáticos,publico,empleado,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW
-G08,Directorio de áreas e internos,publico,empleado,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW
-G09,Política de uso de sistemas,publico,empleado,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW
-G10,Plan de emergencias y evacuación,publico,empleado,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW
-G11,Preguntas frecuentes de TI,publico,empleado,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW
-V01,Manual de ventas,interno,ventas,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW
-V02,Lista de tarifas vigentes (septiembre 2026),interno,ventas,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW
-V03,Política de descuentos,interno,ventas,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW
-V04,Plan de comisiones 2026-2027,confidencial,ventas,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW
-V05,Cuentas clave,confidencial,ventas,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW
-V06,Contrato modelo de servicios de transporte,interno,ventas,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW
-V07,"Informe de ventas, tercer trimestre 2026",interno,ventas,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW
-V08,Pipeline de oportunidades,confidencial,ventas,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW
-V09,Mensaje reenviado de cliente (Distribuidora Norte),interno,ventas,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW
-F01,Presupuesto anual 2027,confidencial,finanzas,DENY,DENY,DENY,ALLOW,DENY,ALLOW
-F02,"Flujo de caja, septiembre 2026",confidencial,finanzas,DENY,DENY,DENY,ALLOW,DENY,ALLOW
-F03,Política de aprobación de gastos,interno,finanzas,DENY,DENY,DENY,ALLOW,DENY,ALLOW
-F04,"Cuentas por pagar, proveedores principales",interno,finanzas,DENY,DENY,DENY,ALLOW,DENY,ALLOW
-F05,Margen por línea de negocio,confidencial,finanzas,DENY,DENY,DENY,ALLOW,DENY,ALLOW
-F06,Informe de auditoría interna 2026,confidencial,finanzas,DENY,DENY,DENY,ALLOW,DENY,ALLOW
-F07,Plan de inversión en flota 2027,confidencial,finanzas,DENY,DENY,DENY,ALLOW,DENY,ALLOW
-F08,"Calendario de cierre contable, septiembre 2026",interno,finanzas,DENY,DENY,DENY,ALLOW,DENY,ALLOW
-F09,Nota de proveedor reenviada (Neumáticos Uruguay),interno,finanzas,DENY,DENY,DENY,ALLOW,DENY,ALLOW
-H01,Escala salarial vigente (septiembre 2026),confidencial,rrhh,ALLOW,DENY,DENY,DENY,DENY,ALLOW
-H02,Evaluaciones de desempeño 2026,confidencial,rrhh,ALLOW,DENY,DENY,DENY,DENY,ALLOW
-H03,Plan de reestructura 2027,confidencial,rrhh,ALLOW,DENY,DENY,DENY,DENY,ALLOW
-H04,Expediente disciplinario DISC-0312,confidencial,rrhh,ALLOW,DENY,DENY,DENY,DENY,ALLOW
-H05,Plan de capacitación 2027,interno,rrhh,ALLOW,DENY,DENY,DENY,DENY,ALLOW
-H06,Encuesta de clima laboral 2026,confidencial,rrhh,ALLOW,DENY,DENY,DENY,DENY,ALLOW
-H07,Vacantes abiertas,interno,rrhh,ALLOW,DENY,DENY,DENY,DENY,ALLOW
-H08,Procedimiento de certificados médicos,interno,rrhh,ALLOW,DENY,DENY,DENY,DENY,ALLOW
-X01,"Acta del Comité de Dirección, octubre 2026",confidencial,finanzas|rrhh,ALLOW,DENY,DENY,ALLOW,DENY,ALLOW
-X02,Cuotas de venta y presupuesto comercial 2027,confidencial,ventas|finanzas,DENY,ALLOW,ALLOW,ALLOW,DENY,ALLOW
-X03,Plan de ajuste salarial 2027,confidencial,rrhh|finanzas,ALLOW,DENY,DENY,ALLOW,DENY,ALLOW
+document_id,title,sensitivity,allowed_roles,sofia@andino.com,ramon@andino.com,martin@andino.com,laura@andino.com,diego@andino.com,valentina@andino.com,visitor@andino.com
+G01,Política de licencia anual,public,employee,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,DENY
+G02,Código de conducta,public,employee,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,DENY
+G03,Calendario de cierres y feriados internos,public,employee,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,DENY
+G04,Guía de bienvenida para nuevos empleados,public,employee,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,DENY
+G05,Política de trabajo remoto,public,employee,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,DENY
+G06,Protocolo de seguridad en depósitos,public,employee,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,DENY
+G07,Política de viáticos,public,employee,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,DENY
+G08,Directorio de áreas e internos,public,employee,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,DENY
+G09,Política de uso de sistemas,public,employee,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,DENY
+G10,Plan de emergencias y evacuación,public,employee,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,DENY
+G11,Preguntas frecuentes de TI,public,employee,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,DENY
+V01,Manual de ventas,internal,sales,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY,DENY
+V02,Lista de tarifas vigentes (septiembre 2026),internal,sales,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY,DENY
+V03,Política de descuentos,internal,sales,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY,DENY
+V04,Plan de comisiones 2026-2027,confidential,sales,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY,DENY
+V05,Cuentas clave,confidential,sales,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY,DENY
+V06,Contrato modelo de servicios de transporte,internal,sales,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY,DENY
+V07,"Informe de ventas, tercer trimestre 2026",internal,sales,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY,DENY
+V08,Pipeline de oportunidades,confidential,sales,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY,DENY
+V09,Mensaje reenviado de cliente (Distribuidora Norte),internal,sales,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY,DENY
+F01,Presupuesto anual 2027,confidential,finance,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY
+F02,"Flujo de caja, septiembre 2026",confidential,finance,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY
+F03,Política de aprobación de gastos,internal,finance,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY
+F04,"Cuentas por pagar, proveedores principales",internal,finance,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY
+F05,Margen por línea de negocio,confidential,finance,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY
+F06,Informe de auditoría interna 2026,confidential,finance,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY
+F07,Plan de inversión en flota 2027,confidential,finance,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY
+F08,"Calendario de cierre contable, septiembre 2026",internal,finance,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY
+F09,Nota de proveedor reenviada (Neumáticos Uruguay),internal,finance,DENY,ALLOW,ALLOW,DENY,DENY,ALLOW,DENY
+H01,Escala salarial vigente (septiembre 2026),confidential,hr,DENY,ALLOW,DENY,ALLOW,DENY,DENY,DENY
+H02,Evaluaciones de desempeño 2026,confidential,hr,DENY,ALLOW,DENY,ALLOW,DENY,DENY,DENY
+H03,Plan de reestructura 2027,confidential,hr,DENY,ALLOW,DENY,ALLOW,DENY,DENY,DENY
+H04,Expediente disciplinario DISC-0312,confidential,hr,DENY,ALLOW,DENY,ALLOW,DENY,DENY,DENY
+H05,Plan de capacitación 2027,internal,hr,DENY,ALLOW,DENY,ALLOW,DENY,DENY,DENY
+H06,Encuesta de clima laboral 2026,confidential,hr,DENY,ALLOW,DENY,ALLOW,DENY,DENY,DENY
+H07,Vacantes abiertas,internal,hr,DENY,ALLOW,DENY,ALLOW,DENY,DENY,DENY
+H08,Procedimiento de certificados médicos,internal,hr,DENY,ALLOW,DENY,ALLOW,DENY,DENY,DENY
+X01,"Acta del Comité de Dirección, octubre 2026",confidential,finance|hr,DENY,ALLOW,ALLOW,ALLOW,DENY,ALLOW,DENY
+X02,Cuotas de venta y presupuesto comercial 2027,confidential,sales|finance,ALLOW,ALLOW,ALLOW,DENY,ALLOW,ALLOW,DENY
+X03,Plan de ajuste salarial 2027,confidential,hr|finance,DENY,ALLOW,ALLOW,ALLOW,DENY,ALLOW,DENY
