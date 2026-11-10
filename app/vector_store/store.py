@@ -60,8 +60,10 @@ def search_documents(
     query: str,
     user_roles: list[RoleName],
     k: int = 5,
+    store: Chroma | None = None,
 ) -> list[Document]:
-    vector_store = get_vector_store()
+    if store is None:
+        store = get_vector_store()
 
     access_conditions = [{"public_access": True}]
 
@@ -76,7 +78,7 @@ def search_documents(
         else {"$or": access_conditions}
     )
 
-    return vector_store.similarity_search(
+    return store.similarity_search(
         query,
         k=k,
         filter=access_filter,
