@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from uuid import UUID
 
 import jwt
@@ -13,6 +14,12 @@ from app.models.user import User
 oauth2_scheme = OAuth2PasswordBearer(
     tokenUrl="/auth/login"
 )
+
+@dataclass(frozen=True)
+class DemoSession:
+    user: User
+    conversation_id: UUID
+
 
 def get_token_payload(
     token: str = Depends(oauth2_scheme),
@@ -68,3 +75,34 @@ def get_demo_user(
         )
 
     return user
+
+def get_demo_session(
+    payload: dict = Depends(get_token_payload),
+    user: User = Depends(get_current_user),
+) -> DemoSession:
+    if payload.get("session_type") != "demo":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Access forbidden for non-demo users",
+        )
+
+    conversation_id = payload.get("conversation_id")
+
+    if not isinstance(conversation_id, str):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid credentials",
+        )
+
+    try:
+        conversation_id = UUID(conversation_id)
+    except ValueError:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid credentials",
+        )
+
+    return DemoSession(
+        user=user,
+        conversation_id=conversation_id,
+    )

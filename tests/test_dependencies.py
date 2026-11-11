@@ -5,7 +5,9 @@ from fastapi import HTTPException
 import pytest
 
 from app.auth.dependencies import (
+    DemoSession,
     get_current_user,
+    get_demo_session,
     get_demo_user,
     get_token_payload,
 )
@@ -126,3 +128,106 @@ def test_get_demo_user_rejects_normal_session(db_session):
         get_demo_user(payload, current_user)
 
     assert exc_info.value.status_code == 403
+
+def test_demo_session_with_valid_uuid(db_session):
+    user = User(
+        id=uuid4(),
+        email="demo@gmail.com",
+        hashed_password="testpsw",
+        first_name="Demo",
+        last_name="User",
+        is_active=True,
+    )
+
+    db_session.add(user)
+    db_session.commit()
+
+    conversation_id = uuid4()
+
+    token = create_access_token(
+        user.id,
+        session_type="demo",
+        conversation_id=str(conversation_id),
+    )
+    payload = get_token_payload(token)
+    current_user = get_current_user(payload, db_session)
+
+    demo_session = get_demo_session(payload, current_user)
+
+    assert isinstance(demo_session, DemoSession)
+    assert demo_session.user.id == user.id
+    assert demo_session.conversation_id == conversation_id
+
+def test_demo_session_rejects_normal_session(db_session):
+    user = User(
+        id=uuid4(),
+        email="normal@gmail.com",
+        hashed_password="testpsw",
+        first_name="Normal",
+        last_name="User",
+        is_active=True,
+    )
+
+    db_session.add(user)
+    db_session.commit()
+
+    token = create_access_token(
+        user.id,
+        session_type="normal",
+        conversation_id=str(uuid4()),
+    )
+    payload = get_token_payload(token)
+    current_user = get_current_user(payload, db_session)
+
+    with pytest.raises(HTTPException) as exc_info:
+        get_demo_session(payload, current_user)
+
+    assert exc_info.value.status_code == 403
+
+def test_demo_session_rejects_missing_conversation_id(db_session):
+    user = User(
+        id=uuid4(),
+        email="demo@gmail.com",
+        hashed_password="testpsw",
+        first_name="Demo",
+        last_name="User",
+        is_active=True,
+    )
+
+    db_session.add(user)
+    db_session.commit()
+
+    token = create_access_token(user.id, session_type="demo")
+    payload = get_token_payload(token)
+    current_user = get_current_user(payload, db_session)
+
+    with pytest.raises(HTTPException) as exc_info:
+        get_demo_session(payload, current_user)
+
+    assert exc_info.value.status_code == 401
+
+def test_demo_session_rejects_invalid_conversation_id(db_session):
+    user = User(
+        id=uuid4(),
+        email="demo@gmail.com",
+        hashed_password="testpsw",
+        first_name="Demo",
+        last_name="User",
+        is_active=True,
+    )
+
+    db_session.add(user)
+    db_session.commit()
+
+    token = create_access_token(
+        user.id,
+        session_type="demo",
+        conversation_id="not-a-uuid",
+    )
+    payload = get_token_payload(token)
+    current_user = get_current_user(payload, db_session)
+
+    with pytest.raises(HTTPException) as exc_info:
+        get_demo_session(payload, current_user)
+
+    assert exc_info.value.status_code == 401
