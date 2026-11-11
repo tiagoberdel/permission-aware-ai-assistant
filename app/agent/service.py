@@ -26,4 +26,6 @@ async def ask_andino(query: str, user: User, conversation_id: str):
             },
         )
 
-        return response["messages"][-1].content
+        last_message = response["messages"][-1]
+
+        return last_message.text

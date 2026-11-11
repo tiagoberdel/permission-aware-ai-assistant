@@ -11,7 +11,6 @@ def create_agent_graph(tools):
     model = ChatOpenAI(
         model=settings.OPENAI_MODEL,
         api_key=settings.OPENAI_API_KEY,
-        temperature=0,
     )
 
     agent = create_agent(

@@ -4,16 +4,14 @@ from uuid import UUID
 import jwt
 
 from fastapi import Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session
 
 from app.auth.jwt import decode_access_token
 from app.db import get_db
 from app.models.user import User
 
-oauth2_scheme = OAuth2PasswordBearer(
-    tokenUrl="/auth/login"
-)
+bearer_scheme = HTTPBearer()
 
 @dataclass(frozen=True)
 class DemoSession:
@@ -22,8 +20,14 @@ class DemoSession:
 
 
 def get_token_payload(
-    token: str = Depends(oauth2_scheme),
+    credentials: HTTPAuthorizationCredentials = Depends(bearer_scheme),
 ) -> dict:
+    token = (
+        credentials.credentials
+        if isinstance(credentials, HTTPAuthorizationCredentials)
+        else credentials
+    )
+
     try:
         payload = decode_access_token(token)
     except jwt.InvalidTokenError:
