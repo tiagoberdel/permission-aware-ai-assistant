@@ -13,6 +13,8 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 30
 def create_access_token(
     user_id: UUID,
     expires_delta: timedelta | None = None,
+    session_type: str = "normal",
+    conversation_id: str | None = None,
 ) -> str:
     now = datetime.now(timezone.utc)
 
@@ -23,7 +25,11 @@ def create_access_token(
         "sub": str(user_id),
         "iat": now,
         "exp": now + expires_delta,
+        "session_type": session_type,
     }
+
+    if conversation_id is not None:
+        payload["conversation_id"] = conversation_id
 
     token = jwt.encode(
         payload,

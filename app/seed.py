@@ -19,6 +19,7 @@ DEMO_USERS = [
         "job_title": "Sales Representative",
         "is_visitor": False,
         "roles": ["employee", "sales"],
+        "demo_id": "sofia",
     },
     {
         "email": "ramon@andino.com",
@@ -28,6 +29,7 @@ DEMO_USERS = [
         "job_title": "Chief Executive Officer",
         "is_visitor": False,
         "roles": ["employee", "sales", "finance", "hr"],
+        "demo_id": "ramon",
     },
     {
         "email": "martin@andino.com",
@@ -37,6 +39,7 @@ DEMO_USERS = [
         "job_title": "Finance Analyst",
         "is_visitor": False,
         "roles": ["employee", "finance"],
+        "demo_id": "martin",
     },
     {
         "email": "laura@andino.com",
@@ -46,6 +49,7 @@ DEMO_USERS = [
         "job_title": "HR Manager",
         "is_visitor": False,
         "roles": ["employee", "hr"],
+        "demo_id": "laura",
     },
     {
         "email": "diego@andino.com",
@@ -55,6 +59,7 @@ DEMO_USERS = [
         "job_title": "Sales Manager",
         "is_visitor": False,
         "roles": ["employee", "sales"],
+        "demo_id": "diego",
     },
     {
         "email": "valentina@andino.com",
@@ -64,6 +69,7 @@ DEMO_USERS = [
         "job_title": "Finance Manager",
         "is_visitor": False,
         "roles": ["employee", "finance"],
+        "demo_id": "valentina",
     },
     {
         "email": "visitor@andino.com",
@@ -73,6 +79,7 @@ DEMO_USERS = [
         "job_title": "External Visitor",
         "is_visitor": True,
         "roles": [],
+        "demo_id": "visitor",
     },
 ]
 
