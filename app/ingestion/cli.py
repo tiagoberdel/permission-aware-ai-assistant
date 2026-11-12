@@ -2,18 +2,21 @@ from collections import defaultdict
 from pathlib import Path
 
 from app.ingestion.service import ingest_documents
-from app.vector_store.store import index_documents, clear_collection, get_vector_store, search_documents
+from app.vector_store.store import (
+    index_documents,
+    clear_collection,
+    get_vector_store,
+    search_documents,
+)
 from app.roles import RoleName
 
 def main():
     try:
-        base_dir = Path("data/andino_dataset")
+        base_dir = Path(__file__).resolve().parent.parent.parent / "data" / "andino_dataset"
         documents_json_path = base_dir / "metadata" / "documents.json"
 
         if not documents_json_path.exists():
-            raise FileNotFoundError(
-                f"Documents metadata file not found: {documents_json_path}"
-            )
+            raise FileNotFoundError(f"Documents metadata file not found: {documents_json_path}")
 
         clear_collection()
 
@@ -25,7 +28,7 @@ def main():
         index_documents(ingested_documents)
 
         print("\n" + "="*50)
-        print(" CHUNKS PER DOCUMENT ")
+        print(" CHUNKS PER DOCUMENT SUMMARY ")
         print("="*50)
 
         chunks_per_doc = defaultdict(int)
@@ -38,12 +41,14 @@ def main():
 
         print("="*50 + "\n")
 
-        store = get_vector_store()
+        # Assertion: Verify that chunks exist for exactly the 42 expected documents
+        assert len(chunks_per_doc) == 42, f"Expected 42 indexed documents, but found {len(chunks_per_doc)}."
 
+        store = get_vector_store()
         data = store.get(include=["metadatas", "documents"])
 
         print("\n" + "="*50)
-        print(" METADATA INDEX VERIFICATION ")
+        print(" STRICT INDEX & METADATA VERIFICATION ")
         print("="*50)
 
         found_x04 = False
@@ -53,35 +58,42 @@ def main():
             doc_id = meta.get("document_id")
             if doc_id == "X04":
                 found_x04 = True
-                print(f"[X04] public_access: {meta.get('public_access')} | allowed_roles: {meta.get('allowed_roles')}")
+                assert meta.get("public_access") is False, "X04 has public_access set to True incorrectly."
+                assert "allowed_roles" not in meta or not meta.get("allowed_roles"), "X04 must not have allowed_roles."
             elif doc_id == "G12":
                 found_g12 = True
-                print(f"[G12] public_access: {meta.get('public_access')} | allowed_roles: {meta.get('allowed_roles')}")
+                assert meta.get("public_access") is True, "G12 must be public (public_access=True)."
 
-        if not found_x04:
-            print("Warn: No chunks found for document X04.")
-        if not found_g12:
-            print("Warn: No chunks found for document G12.")
+        assert found_x04, "No chunks found for document X04."
+        assert found_g12, "No chunks found for document G12."
+        print("  [OK] X04 and G12 metadata validated successfully.")
 
-        print("="*50)
-        print(" SEARCH TEST WITH SEARCH_DOCUMENTS")
-        print("="*50)
-
-        print("\n--- SEARCH AS VISITTOR (roles = []) ---")
-        visitor_results = search_documents(query="información general", user_roles=[], store=store)
+        print("\n--- Verifying search as VISITOR (roles = []) ---")
+        visitor_results = search_documents(query="Proyecto Horizonte", user_roles=[], store=store)
         for r in visitor_results:
-            print(f"  -> Found doc_id: {r.metadata.get('document_id')} (public: {r.metadata.get('public_access')})")
+            assert r.metadata.get("document_id") == "G12", f"Visitor accessed unauthorized document: {r.metadata.get('document_id')}"
+        print("  [OK] Visitor sees G12 only.")
 
-        print("\n--- Búsqueda como RAMÓN ---")
-        ramon_roles = [RoleName.RAMON] if hasattr(RoleName, "RAMON") else [] 
-        ramon_results = search_documents(query="información confidencial o general", user_roles=ramon_roles, store=store)
-        
-        x04_leaked = any(r.metadata.get('document_id') == "X04" for r in ramon_results)
-        if x04_leaked:
-            print("  [ERROR] ¡X04 leaked in Ramón results!")
-        else:
-            print("  [OK] X04 Didn't appear in Ramón results.")
+        users_profiles = {
+            "Visitor": [],
+            "Ramón (All roles)": [RoleName.EMPLOYEE, RoleName.SALES, RoleName.FINANCE, RoleName.HR],
+            "Standard Employee": [RoleName.EMPLOYEE],
+            "Sales": [RoleName.SALES],
+            "Finance": [RoleName.FINANCE],
+            "HR": [RoleName.HR],
+            "Sales & Finance": [RoleName.SALES, RoleName.FINANCE]
+        }
 
+        print("\n--- Verifying that X04 NEVER leaks across all 7 user profiles ---")
+        for profile_name, roles in users_profiles.items():
+            results = search_documents(query="Proyecto Horizonte", user_roles=roles, store=store)
+            for r in results:
+                doc_id = r.metadata.get("document_id")
+                assert doc_id != "X04", f"SECURITY BREACH: Profile '{profile_name}' gained access to restricted document X04."
+            print(f"  [OK] Profile '{profile_name}' validated successfully (X04 safely restricted).")
+
+        print("="*50)
+        print(" ALL VERIFICATIONS PASSED SUCCESSFULLY! ")
         print("="*50 + "\n")
 
     except Exception as e:

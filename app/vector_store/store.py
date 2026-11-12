@@ -1,5 +1,7 @@
 from collections import defaultdict
+from pathlib import Path
 import chromadb
+from chromadb.errors import NotFoundError
 
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
@@ -7,12 +9,15 @@ from langchain_core.documents import Document
 from app.roles import RoleName
 from app.embeddings.embeddings import get_embeddings
 
+VECTOR_STORE_DIR = Path(__file__).resolve().parent.parent.parent / "andino_db"
+COLLECTION_NAME = "andino-docs"
+
 
 def get_vector_store() -> Chroma:
     return Chroma(
-        collection_name="andino-docs",
+        collection_name=COLLECTION_NAME,
         embedding_function=get_embeddings(),
-        persist_directory="./andino_db",
+        persist_directory=str(VECTOR_STORE_DIR),
     )
 
 
@@ -85,11 +90,9 @@ def search_documents(
     )
 
 
-def clear_collection(collection_name: str = "andino-docs"):
-    client = chromadb.PersistentClient(path="./andino_db")
+def clear_collection(collection_name: str = COLLECTION_NAME):
+    client = chromadb.PersistentClient(path=str(VECTOR_STORE_DIR))
     try:
         client.delete_collection(name=collection_name)
-    except ValueError:
+    except (ValueError, NotFoundError):
         pass
-    
-    client.create_collection(name=collection_name)
