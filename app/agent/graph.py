@@ -1,4 +1,4 @@
-from langchain_openai import ChatOpenAI
+from langchain_groq import ChatGroq
 from langchain.agents import create_agent
 from langgraph.checkpoint.memory import InMemorySaver
 
@@ -8,9 +8,14 @@ from app.config import settings
 checkpointer = InMemorySaver()
 
 def create_agent_graph(tools):
-    model = ChatOpenAI(
-        model=settings.OPENAI_MODEL,
-        api_key=settings.OPENAI_API_KEY,
+    model = ChatGroq(
+        model=settings.GROQ_MODEL,
+        api_key=settings.GROQ_API_KEY,
+        temperature=0,
+        reasoning_effort="low",
+        reasoning_format="hidden",
+        max_tokens=700,
+        max_retries=2,
     )
 
     agent = create_agent(

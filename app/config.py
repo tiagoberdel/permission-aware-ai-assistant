@@ -6,8 +6,8 @@ load_dotenv()
 class Settings(BaseSettings):
     DATABASE_URL: str
     JWT_SECRET: str
-    OPENAI_API_KEY: str
-    OPENAI_MODEL: str
+    GROQ_API_KEY: str
+    GROQ_MODEL: str
 
     model_config = SettingsConfigDict(
         env_file=".env",
