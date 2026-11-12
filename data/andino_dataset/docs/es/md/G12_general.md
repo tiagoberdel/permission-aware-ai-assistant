@@ -29,7 +29,7 @@ La sede principal de Andino se encuentra en Montevideo, Uruguay. La empresa trab
 
 ## Dirección
 
-La dirección ejecutiva está a cargo de Ramón Pereira, CEO de Andino.
+La dirección ejecutiva está a cargo de Ramón Rodríguez, CEO de Andino.
 
 ## Contacto
 

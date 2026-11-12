@@ -29,7 +29,7 @@ Andino's headquarters are located in Montevideo, Uruguay. The company works with
 
 ## Leadership
 
-The executive team is led by Ramón Pereira, CEO of Andino.
+The executive team is led by Ramón Rodríguez, CEO of Andino.
 
 ## Contact
 

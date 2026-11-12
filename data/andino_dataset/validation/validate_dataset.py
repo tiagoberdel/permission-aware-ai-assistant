@@ -12,6 +12,8 @@ si no está, el comando `pdftotext` (poppler). DOCX se lee con la biblioteca est
 """
 import argparse, csv, datetime, json, os, re, subprocess, sys, zipfile
 
+DENY_ALL_DOCS = {"X04"}  # sin permisos por diseño (deny-by-default)
+N_DOCS, N_FILES, N_MD = 42, 84, 12
 ROLES = {"employee", "sales", "finance", "hr"}
 SENS = {"public", "internal", "confidential"}
 LANGS = ("es", "en")
@@ -79,8 +81,8 @@ def number_tokens(text):
 def id_tokens(text):
     return set(ID_RE.findall(text))
 
-def can_read(roles, allowed):
-    return bool(set(roles) & set(allowed))
+def can_read(roles, doc):
+    return bool(doc.get("public_access")) or bool(set(roles) & set(doc["allowed_roles"]))
 
 
 # ----------------------------------------------------------------- core
@@ -115,20 +117,20 @@ def run(root):
 
     # 1 / 6
     errs = []
-    if len(docs) != 40: errs.append("documentos lógicos = %d" % len(docs))
-    R.add("01", "Exactamente 40 documentos lógicos", errs)
+    if len(docs) != N_DOCS: errs.append("documentos lógicos = %d" % len(docs))
+    R.add("01", "Exactamente %d documentos lógicos" % N_DOCS, errs)
     ids = [d["document_id"] for d in docs]
     R.add("06", "Ningún document_id duplicado", ["duplicado: %s" % i for i in set(ids) if ids.count(i) > 1])
 
     # 2 / 3 / 4 / 5
     files = [(d["document_id"], f) for d in docs for f in d.get("files", [])]
-    R.add("02", "Exactamente 80 archivos físicos referenciados", [] if len(files) == 80 else ["archivos = %d" % len(files)])
+    R.add("02", "Exactamente %d archivos físicos referenciados" % N_FILES, [] if len(files) == N_FILES else ["archivos = %d" % len(files)])
     errs = []
     for lang in LANGS:
-        for fmt, n in (("pdf", 20), ("docx", 10), ("md", 10)):
+        for fmt, n in (("pdf", 20), ("docx", 10), ("md", N_MD)):
             c = sum(1 for _, f in files if f["language"] == lang and f["format"] == fmt)
             if c != n: errs.append("%s/%s = %d (esperado %d)" % (lang, fmt, c, n))
-    R.add("03", "20 PDF, 10 DOCX y 10 Markdown por idioma", errs)
+    R.add("03", "20 PDF, 10 DOCX y %d Markdown por idioma" % N_MD, errs)
     errs = []
     for d in docs:
         langs = sorted(f["language"] for f in d["files"])
@@ -160,8 +162,8 @@ def run(root):
         except Exception: errs.append("%s: fecha no ISO" % d["document_id"])
         if d.get("owner") not in EXPECTED_USERS or d.get("owner") == "visitor@andino.com": errs.append("%s: owner inválido" % d["document_id"])
         if d.get("original_language") != "es" or d.get("translations") != ["en"]: errs.append("%s: idiomas original/traducción" % d["document_id"])
-        if not d.get("allowed_roles"): errs.append("%s: allowed_roles vacío" % d["document_id"])
-        if d.get("sensitivity") == "public" and d.get("allowed_roles") != ["employee"]: errs.append("%s: público debe ser [employee]" % d["document_id"])
+        if not d.get("allowed_roles") and not d.get("public_access") and d["document_id"] not in DENY_ALL_DOCS: errs.append("%s: allowed_roles vacío" % d["document_id"])
+        if d.get("sensitivity") == "public" and not d.get("public_access") and d.get("allowed_roles") != ["employee"]: errs.append("%s: público debe ser [employee]" % d["document_id"])
         for r in d.get("allowed_roles", []):
             if r not in ROLES: errs8.append("%s: rol inválido %s" % (d["document_id"], r))
     R.add("07", "Metadatos válidos en cada documento", errs)
@@ -190,16 +192,16 @@ def run(root):
         rd = csv.DictReader(f); rows = list(rd); header = rd.fieldnames
     exp_header = ["document_id", "title", "sensitivity", "allowed_roles"] + IDENTITIES
     if header != exp_header: errs11.append("encabezado %s" % header)
-    if len(rows) != 40: errs11.append("filas = %d" % len(rows))
+    if len(rows) != N_DOCS: errs11.append("filas = %d" % len(rows))
     if {r["document_id"] for r in rows} != set(ids): errs11.append("los document_id de la matriz no coinciden con el manifiesto")
-    R.add("11", "Matriz: 40 filas y 7 columnas de identidades con emails exactos", errs11)
+    R.add("11", "Matriz: %d filas y 7 columnas de identidades con emails exactos" % N_DOCS, errs11)
     for r in rows:
         d = by_id.get(r["document_id"])
         if not d: continue
-        if r["allowed_roles"].split("|") != d["allowed_roles"]: errs12.append("%s: allowed_roles difiere del manifiesto" % r["document_id"])
+        if [x for x in r["allowed_roles"].split("|") if x] != d["allowed_roles"]: errs12.append("%s: allowed_roles difiere del manifiesto" % r["document_id"])
         if r["sensitivity"] != d["sensitivity"]: errs12.append("%s: sensibilidad difiere" % r["document_id"])
         for e in IDENTITIES:
-            exp = "ALLOW" if can_read(uroles.get(e, set()), d["allowed_roles"]) else "DENY"
+            exp = "ALLOW" if can_read(uroles.get(e, set()), d) else "DENY"
             if r[e] != exp: errs12.append("%s/%s: %s (esperado %s)" % (r["document_id"], e, r[e], exp))
     R.add("12", "Cada permiso de la matriz coincide con la regla de intersección de roles", errs12)
 
@@ -216,12 +218,12 @@ def run(root):
         if q["asker"] not in EXPECTED_USERS: errs.append("%s: asker inválido" % q["id"]); continue
         d = by_id.get(q["target_doc_id"])
         if not d: errs.append("%s: target_doc_id inválido" % q["id"]); continue
-        allowed = can_read(uroles[q["asker"]], d["allowed_roles"])
+        allowed = can_read(uroles[q["asker"]], d)
         if q["type"] == "authorized" and not allowed: errs.append("%s: autorizada pero el asker no puede leer %s" % (q["id"], d["document_id"]))
         if q["type"] == "unauthorized" and allowed: errs.append("%s: no autorizada pero el asker SÍ puede leer %s" % (q["id"], d["document_id"]))
         for sid in q.get("supporting_doc_ids", []):
             if sid not in by_id: errs.append("%s: supporting_doc_id inválido %s" % (q["id"], sid))
-            elif q["type"] == "authorized" and not can_read(uroles[q["asker"]], by_id[sid]["allowed_roles"]): errs.append("%s: soporte %s no autorizado" % (q["id"], sid))
+            elif q["type"] == "authorized" and not can_read(uroles[q["asker"]], by_id[sid]): errs.append("%s: soporte %s no autorizado" % (q["id"], sid))
     R.add("13b", "Preguntas: campos completos y autorización coherente con la regla de roles", errs)
 
     # 15
@@ -235,7 +237,7 @@ def run(root):
         if a["asker"] not in EXPECTED_USERS: errs.append("%s: asker inválido" % a["id"]); continue
         for did in a["must_not_leak_doc_ids"]:
             if did not in by_id: errs.append("%s: doc inválido %s" % (a["id"], did))
-            elif can_read(uroles[a["asker"]], by_id[did]["allowed_roles"]): errs.append("%s: %s está AUTORIZADO para %s (no puede ser un must_not_leak)" % (a["id"], did, a["asker"]))
+            elif can_read(uroles[a["asker"]], by_id[did]): errs.append("%s: %s está AUTORIZADO para %s (no puede ser un must_not_leak)" % (a["id"], did, a["asker"]))
         if not a["leak_markers"]: errs.append("%s: sin leak_markers" % a["id"])
     if len({a["category"] for a in attacks}) < 8: errs.append("menos de 8 categorías de ataque")
     R.add("15b", "Ataques: campos completos, documentos realmente no autorizados y >=8 categorías", errs)
@@ -271,13 +273,13 @@ def run(root):
     for did, f in files:
         try: texts[(did, f["language"])] = extract_text(P(*f["path"].split("/")))
         except Exception as e: extract_errs.append("%s: %s" % (f["path"], e))
-    R.add("18a", "El texto se puede extraer de los 80 archivos (PDF con texto seleccionable)", extract_errs +
+    R.add("18a", "El texto se puede extraer de los %d archivos (PDF con texto seleccionable)" % N_FILES, extract_errs +
           ["%s/%s: texto casi vacío" % k for k, t in texts.items() if len(t.strip()) < 400])
 
     # 18 paridad de traducción
     errs = []
     tv_by = {x["document_id"]: x for x in tv.get("documents", [])}
-    if set(tv_by) != set(ids): errs.append("translation_validation.json no cubre exactamente los 40 documentos")
+    if set(tv_by) != set(ids): errs.append("translation_validation.json no cubre exactamente los %d documentos" % N_DOCS + "")
     for did in ids:
         if (did, "es") not in texts or (did, "en") not in texts: continue
         es, en = texts[(did, "es")], texts[(did, "en")]
@@ -314,7 +316,7 @@ def run(root):
 
     # extra: marcadores no ambiguos entre documentos
     errs = []
-    readers = {d["document_id"]: {e for e in IDENTITIES if can_read(uroles[e], d["allowed_roles"])} for d in docs}
+    readers = {d["document_id"]: {e for e in IDENTITIES if can_read(uroles[e], d)} for d in docs}
     for c in canaries:
         for m in c["sensitive_markers"]:
             nm = norm(m)

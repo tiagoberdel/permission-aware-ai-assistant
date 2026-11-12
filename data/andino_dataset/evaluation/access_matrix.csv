@@ -39,3 +39,5 @@ H08,Procedimiento de certificados médicos,internal,hr,DENY,ALLOW,DENY,ALLOW,DEN
 X01,"Acta del Comité de Dirección, octubre 2026",confidential,finance|hr,DENY,ALLOW,ALLOW,ALLOW,DENY,ALLOW,DENY
 X02,Cuotas de venta y presupuesto comercial 2027,confidential,sales|finance,ALLOW,ALLOW,ALLOW,DENY,ALLOW,ALLOW,DENY
 X03,Plan de ajuste salarial 2027,confidential,hr|finance,DENY,ALLOW,ALLOW,ALLOW,DENY,ALLOW,DENY
+G12,Sobre Andino,public,,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW,ALLOW
+X04,Documento interno restringido,confidential,,DENY,DENY,DENY,DENY,DENY,DENY,DENY

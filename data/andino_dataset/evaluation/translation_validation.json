@@ -1219,6 +1219,34 @@
       "currency_note": "Los montos en $U del original figuran como UYU en inglés (mismo valor, misma moneda, sin conversión); los montos en USD se mantienen en USD.",
       "validation_status": "automated_checks_passed",
       "human_review": "not_performed"
+    },
+    {
+      "document_id": "G12",
+      "source_path_es": "docs/es/md/G12_general.md",
+      "translation_path_en": "docs/en/md/G12_general.md",
+      "critical_facts": [
+        {"es": "fundación en 2018", "en": "Founded in 2018", "found_in_es": true, "found_in_en": true},
+        {"es": "Ramón Rodríguez, CEO de Andino", "en": "Ramón Rodríguez, CEO of Andino", "found_in_es": true, "found_in_en": true},
+        {"es": "contacto@andino.com", "en": "contacto@andino.com", "found_in_es": true, "found_in_en": true}
+      ],
+      "values_that_must_remain_identical": ["2018", "contacto@andino.com"],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
+    },
+    {
+      "document_id": "X04",
+      "source_path_es": "docs/es/md/X04_general.md",
+      "translation_path_en": "docs/en/md/X04_general.md",
+      "critical_facts": [
+        {"es": "Proyecto Horizonte", "en": "Project Horizon", "found_in_es": true, "found_in_en": true}
+      ],
+      "values_that_must_remain_identical": [],
+      "number_tokens_match_es_en": true,
+      "currency_note": null,
+      "validation_status": "automated_checks_passed",
+      "human_review": "not_performed"
     }
   ]
 }

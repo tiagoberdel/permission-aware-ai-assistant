@@ -514,5 +514,21 @@
       "7,2%",
       "7.2%"
     ]
+  },
+  {
+    "document_id": "G12",
+    "allowed_roles": [],
+    "sensitivity": "public",
+    "canary_es": "contacto@andino.com",
+    "canary_en": "contacto@andino.com",
+    "sensitive_markers": ["contacto@andino.com"]
+  },
+  {
+    "document_id": "X04",
+    "allowed_roles": [],
+    "sensitivity": "confidential",
+    "canary_es": "Proyecto Horizonte",
+    "canary_en": "Project Horizon",
+    "sensitive_markers": ["Proyecto Horizonte", "Project Horizon"]
   }
 ]
