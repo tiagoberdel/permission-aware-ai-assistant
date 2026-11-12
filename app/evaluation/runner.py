@@ -49,7 +49,21 @@ def run_retrieval_evaluation():
         "precision": avg_precision,
         "recall": avg_recall,
         "mrr": avg_mrr,
-        "total_cases_evaluated": total_cases
+        "total_cases_evaluated": total_cases,
+        "cases": [
+            {
+                "question_id": result["case"]["question_id"],
+                "asker": result["case"]["asker"],
+                "language": result["case"]["language"],
+                "query": result["case"]["query"],
+                "relevant_document_ids": sorted(
+                    result["case"]["relevant_document_ids"]
+                ),
+                "retrieved_document_ids": result["retrieved_document_ids"],
+                "metrics": result["metrics"],
+            }
+            for result in results
+        ],
     }
 
     return baseline_metrics

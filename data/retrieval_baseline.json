@@ -1,0 +1,598 @@
+{
+    "precision": 0.21428571428571427,
+    "recall": 1.0,
+    "mrr": 0.9821428571428571,
+    "total_cases_evaluated": 28,
+    "cases": [
+        {
+            "question_id": "Q01",
+            "asker": "laura@andino.com",
+            "language": "es",
+            "query": "\u00bfCu\u00e1ntos d\u00edas de licencia anual me corresponden?",
+            "relevant_document_ids": [
+                "G01"
+            ],
+            "retrieved_document_ids": [
+                "G01",
+                "G04",
+                "G09",
+                "H05",
+                "G11"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q01",
+            "asker": "laura@andino.com",
+            "language": "en",
+            "query": "How many days of annual leave am I entitled to?",
+            "relevant_document_ids": [
+                "G01"
+            ],
+            "retrieved_document_ids": [
+                "G01",
+                "G07",
+                "H08",
+                "G04",
+                "G05"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q02",
+            "asker": "sofia@andino.com",
+            "language": "es",
+            "query": "Suena la alarma de incendio en la oficina, \u00bfad\u00f3nde tengo que ir?",
+            "relevant_document_ids": [
+                "G10"
+            ],
+            "retrieved_document_ids": [
+                "G10",
+                "G09",
+                "G04",
+                "G11",
+                "G06"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q02",
+            "asker": "sofia@andino.com",
+            "language": "en",
+            "query": "The fire alarm goes off in the office, where do I have to go?",
+            "relevant_document_ids": [
+                "G10"
+            ],
+            "retrieved_document_ids": [
+                "G10",
+                "G04",
+                "G06",
+                "G05",
+                "G09"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q03",
+            "asker": "sofia@andino.com",
+            "language": "es",
+            "query": "\u00bfCu\u00e1l es la tarifa por pallet de Montevideo a Rivera?",
+            "relevant_document_ids": [
+                "V02"
+            ],
+            "retrieved_document_ids": [
+                "V02",
+                "V09",
+                "V06",
+                "G06",
+                "G04"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q03",
+            "asker": "sofia@andino.com",
+            "language": "en",
+            "query": "What is the rate per pallet from Montevideo to Rivera?",
+            "relevant_document_ids": [
+                "V02"
+            ],
+            "retrieved_document_ids": [
+                "V02",
+                "V09",
+                "G04",
+                "V06",
+                "G06"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q04",
+            "asker": "diego@andino.com",
+            "language": "es",
+            "query": "\u00bfHasta cu\u00e1nto puedo dar de descuento y qui\u00e9n tiene que autorizar el m\u00e1ximo?",
+            "relevant_document_ids": [
+                "V03"
+            ],
+            "retrieved_document_ids": [
+                "V03",
+                "G02",
+                "G01",
+                "V01",
+                "X02"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q04",
+            "asker": "diego@andino.com",
+            "language": "en",
+            "query": "How much discount can I give at most, and who has to authorize the maximum?",
+            "relevant_document_ids": [
+                "V03"
+            ],
+            "retrieved_document_ids": [
+                "V03",
+                "V04",
+                "G07",
+                "V01",
+                "G02"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q05",
+            "asker": "sofia@andino.com",
+            "language": "es",
+            "query": "Para el pedido urgente de Distribuidora Norte, \u00bfcu\u00e1nto costar\u00eda a tarifa de lista, sin IVA?",
+            "relevant_document_ids": [
+                "V02",
+                "V09"
+            ],
+            "retrieved_document_ids": [
+                "V02",
+                "V05",
+                "V09",
+                "V08",
+                "V03"
+            ],
+            "metrics": {
+                "precision_at_k": 0.4,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q05",
+            "asker": "sofia@andino.com",
+            "language": "en",
+            "query": "For Distribuidora Norte's urgent order, how much would it cost at list rate, excluding VAT?",
+            "relevant_document_ids": [
+                "V02",
+                "V09"
+            ],
+            "retrieved_document_ids": [
+                "V05",
+                "V09",
+                "V02",
+                "V08",
+                "V03"
+            ],
+            "metrics": {
+                "precision_at_k": 0.4,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 0.5
+            }
+        },
+        {
+            "question_id": "Q06",
+            "asker": "laura@andino.com",
+            "language": "es",
+            "query": "\u00bfCu\u00e1nto cobra Mart\u00edn P\u00e9rez?",
+            "relevant_document_ids": [
+                "H01"
+            ],
+            "retrieved_document_ids": [
+                "H01",
+                "H02",
+                "X01",
+                "X03",
+                "G07"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q06",
+            "asker": "laura@andino.com",
+            "language": "en",
+            "query": "How much does Mart\u00edn P\u00e9rez earn?",
+            "relevant_document_ids": [
+                "H01"
+            ],
+            "retrieved_document_ids": [
+                "H01",
+                "H02",
+                "X01",
+                "G12",
+                "H07"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q07",
+            "asker": "laura@andino.com",
+            "language": "es",
+            "query": "\u00bfQu\u00e9 vacantes tenemos abiertas y cu\u00e1les son sus c\u00f3digos?",
+            "relevant_document_ids": [
+                "H07"
+            ],
+            "retrieved_document_ids": [
+                "H07",
+                "X01",
+                "H03",
+                "G03",
+                "G04"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q07",
+            "asker": "laura@andino.com",
+            "language": "en",
+            "query": "Which vacancies do we have open and what are their codes?",
+            "relevant_document_ids": [
+                "H07"
+            ],
+            "retrieved_document_ids": [
+                "H07",
+                "X01",
+                "G03",
+                "G02",
+                "H03"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q08",
+            "asker": "martin@andino.com",
+            "language": "es",
+            "query": "\u00bfA partir de qu\u00e9 monto un gasto necesita aprobaci\u00f3n de gerencia general?",
+            "relevant_document_ids": [
+                "F03"
+            ],
+            "retrieved_document_ids": [
+                "F03",
+                "G07",
+                "F01",
+                "F06",
+                "X02"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q08",
+            "asker": "martin@andino.com",
+            "language": "en",
+            "query": "Above what amount does an expense need general management approval?",
+            "relevant_document_ids": [
+                "F03"
+            ],
+            "retrieved_document_ids": [
+                "F03",
+                "G07",
+                "X02",
+                "F07",
+                "X01"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q09",
+            "asker": "valentina@andino.com",
+            "language": "es",
+            "query": "\u00bfQu\u00e9 margen tiene cada l\u00ednea de negocio?",
+            "relevant_document_ids": [
+                "F05"
+            ],
+            "retrieved_document_ids": [
+                "F05",
+                "G04",
+                "G08",
+                "X01",
+                "F06"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q09",
+            "asker": "valentina@andino.com",
+            "language": "en",
+            "query": "What margin does each business line have?",
+            "relevant_document_ids": [
+                "F05"
+            ],
+            "retrieved_document_ids": [
+                "F05",
+                "X02",
+                "G09",
+                "G01",
+                "G05"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q10",
+            "asker": "martin@andino.com",
+            "language": "es",
+            "query": "\u00bfEn cu\u00e1ntos d\u00edas le pagamos a Combustibles del Plata?",
+            "relevant_document_ids": [
+                "F04"
+            ],
+            "retrieved_document_ids": [
+                "F04",
+                "G01",
+                "G07",
+                "F09",
+                "G11"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q10",
+            "asker": "martin@andino.com",
+            "language": "en",
+            "query": "In how many days do we pay Combustibles del Plata?",
+            "relevant_document_ids": [
+                "F04"
+            ],
+            "retrieved_document_ids": [
+                "F04",
+                "G07",
+                "F09",
+                "G06",
+                "G11"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q11",
+            "asker": "ramon@andino.com",
+            "language": "es",
+            "query": "\u00bfQu\u00e9 ajuste salarial est\u00e1 previsto para enero y cu\u00e1nto cuesta por a\u00f1o?",
+            "relevant_document_ids": [
+                "X03"
+            ],
+            "retrieved_document_ids": [
+                "X03",
+                "F01",
+                "X01",
+                "H01",
+                "X02"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q11",
+            "asker": "ramon@andino.com",
+            "language": "en",
+            "query": "What salary adjustment is planned for January and how much does it cost per year?",
+            "relevant_document_ids": [
+                "X03"
+            ],
+            "retrieved_document_ids": [
+                "X03",
+                "F01",
+                "X01",
+                "H01",
+                "F03"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q12",
+            "asker": "diego@andino.com",
+            "language": "es",
+            "query": "\u00bfCu\u00e1l es la cuota de ventas para 2027?",
+            "relevant_document_ids": [
+                "X02"
+            ],
+            "retrieved_document_ids": [
+                "X02",
+                "V04",
+                "V07",
+                "V05",
+                "V01"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q12",
+            "asker": "diego@andino.com",
+            "language": "en",
+            "query": "What is the sales quota for 2027?",
+            "relevant_document_ids": [
+                "X02"
+            ],
+            "retrieved_document_ids": [
+                "X02",
+                "V04",
+                "V07",
+                "V05",
+                "V01"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q13",
+            "asker": "valentina@andino.com",
+            "language": "es",
+            "query": "\u00bfQu\u00e9 se resolvi\u00f3 en el Comit\u00e9 de Direcci\u00f3n sobre horas extra y contrataciones?",
+            "relevant_document_ids": [
+                "X01"
+            ],
+            "retrieved_document_ids": [
+                "X01",
+                "F01",
+                "G05",
+                "G12",
+                "G08"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q13",
+            "asker": "valentina@andino.com",
+            "language": "en",
+            "query": "What did the Management Committee resolve about overtime and hiring?",
+            "relevant_document_ids": [
+                "X01"
+            ],
+            "retrieved_document_ids": [
+                "X01",
+                "G05",
+                "F06",
+                "G03",
+                "F01"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q14",
+            "asker": "ramon@andino.com",
+            "language": "es",
+            "query": "\u00bfCu\u00e1l fue el saldo de caja al 30 de septiembre?",
+            "relevant_document_ids": [
+                "F02"
+            ],
+            "retrieved_document_ids": [
+                "F02",
+                "F08",
+                "F04",
+                "F05",
+                "H03"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        },
+        {
+            "question_id": "Q14",
+            "asker": "ramon@andino.com",
+            "language": "en",
+            "query": "What was the cash balance on 30 September?",
+            "relevant_document_ids": [
+                "F02"
+            ],
+            "retrieved_document_ids": [
+                "F02",
+                "F04",
+                "F08",
+                "V05",
+                "H01"
+            ],
+            "metrics": {
+                "precision_at_k": 0.2,
+                "recall_at_k": 1.0,
+                "mrr_at_k": 1.0
+            }
+        }
+    ]
+}
