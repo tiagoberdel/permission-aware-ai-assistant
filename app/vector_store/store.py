@@ -1,5 +1,5 @@
-
 from collections import defaultdict
+import chromadb
 
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
@@ -83,3 +83,13 @@ def search_documents(
         k=k,
         filter=access_filter,
     )
+
+
+def clear_collection(collection_name: str = "andino-docs"):
+    client = chromadb.PersistentClient(path="./andino_db")
+    try:
+        client.delete_collection(name=collection_name)
+    except ValueError:
+        pass
+    
+    client.create_collection(name=collection_name)
