@@ -41,7 +41,6 @@ def main():
 
         print("="*50 + "\n")
 
-        # Assertion: Verify that chunks exist for exactly the 42 expected documents
         assert len(chunks_per_doc) == 42, f"Expected 42 indexed documents, but found {len(chunks_per_doc)}."
 
         store = get_vector_store()

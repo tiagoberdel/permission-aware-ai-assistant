@@ -1,3 +1,5 @@
+import json
+from pathlib import Path
 from langchain_core.documents import Document
 
 from app.evaluation.database import get_user_roles
@@ -20,10 +22,13 @@ def run_retrieval_evaluation():
         )
         retrieved_document_ids = get_unique_document_ids(search_results)[:5]
 
+        relevant_ids = set(case["relevant_document_ids"])
+
         metrics = calculate_metrics(
-            relevant_document_ids= case["relevant_document_ids"], 
+            relevant_document_ids=relevant_ids, 
             retrieved_document_ids=retrieved_document_ids, 
-            k=5)
+            k=5
+        )
         
         results.append({
             "case": case,
@@ -32,7 +37,22 @@ def run_retrieval_evaluation():
             "metrics": metrics
         })
 
-    return results
+    total_cases = len(results)
+    if total_cases == 0:
+        raise ValueError("No authorized evaluation cases found.")
+
+    avg_precision = sum(r["metrics"]["precision_at_k"] for r in results) / total_cases
+    avg_recall = sum(r["metrics"]["recall_at_k"] for r in results) / total_cases
+    avg_mrr = sum(r["metrics"]["mrr_at_k"] for r in results) / total_cases
+
+    baseline_metrics = {
+        "precision": avg_precision,
+        "recall": avg_recall,
+        "mrr": avg_mrr,
+        "total_cases_evaluated": total_cases
+    }
+
+    return baseline_metrics
 
 def get_unique_document_ids(documents: list[Document]) -> list[str]:
     unique_ids = []
@@ -74,3 +94,23 @@ def calculate_metrics(
         "recall_at_k": recall_at_k,
         "mrr_at_k": mrr_at_k,
     }
+
+if __name__ == "__main__":
+    metrics = run_retrieval_evaluation()
+
+    print("\n" + "="*50)
+    print(" RETRIEVAL EVALUATION BASELINE ")
+    print("="*50)
+    print(f"Precision@5: {metrics['precision']:.4f}")
+    print(f"Recall@5:    {metrics['recall']:.4f}")
+    print(f"MRR@5:       {metrics['mrr']:.4f}")
+    print(f"Evaluated cases: {metrics['total_cases_evaluated']}")
+    print("="*50 + "\n")
+
+    baseline_path = Path(__file__).resolve().parent.parent.parent / "data" / "retrieval_baseline.json"
+    baseline_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    with open(baseline_path, "w", encoding="utf-8") as f:
+        json.dump(metrics, f, indent=4)
+    
+    print(f"Baseline successfully saved to: {baseline_path}")

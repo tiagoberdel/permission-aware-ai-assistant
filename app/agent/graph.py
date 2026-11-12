@@ -14,7 +14,7 @@ def create_agent_graph(tools):
         temperature=0,
         reasoning_effort="low",
         reasoning_format="hidden",
-        max_tokens=700,
+        max_tokens=800,
         max_retries=2,
     )
 
