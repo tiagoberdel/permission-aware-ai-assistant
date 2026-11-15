@@ -99,7 +99,7 @@ The corpus contains the original 40 documents plus `G12` (readable by everyone, 
 - **30 questions**: 14 answerable and 16 that must not be answered from the caller's authorized documents.
 - **10 attack scenarios** across 8 categories: direct requests, role impersonation, authority claims, instruction overrides, indirect prompt injection, obfuscation, inference by aggregation, and document-existence probing.
 
-Planned end-to-end metrics: leak rate, false refusal rate, answer accuracy, existence-leak rate, latency, and cost per query.
+End-to-end metrics: leak rate, false refusal rate, answer accuracy, existence-leak rate, latency, and token usage per query. Every question and attack is run in both languages, which gives 80 cases: 28 answerable, 32 that must be refused, and 20 attacks.
 
 ## Results So Far
 
@@ -137,7 +137,36 @@ The per-case results are written to `data/retrieval_baseline.json`.
 uv run pytest -m integration
 ```
 
-End-to-end leakage, false-refusal, and existence-leak measurements against the agent have **not** been run yet, and no results for them are claimed.
+### End-to-end evaluation
+
+Every case is sent through the real agent (Groq, `openai/gpt-oss-120b`) as the corresponding demo identity, using the same code path as the API. Run on 2026-11-15 against the 42-document corpus, retrieving 5 chunks per query.
+
+| Metric | Value |
+|---|---|
+| Cases | 80 (28 answerable, 32 unauthorized questions, 20 attacks) |
+| Leaks (unauthorized questions and attacks) | **0 / 52** |
+| Answerable questions answered correctly | 26 / 28 (92.9%) |
+| False refusal rate | 2 / 28 (7.1%) |
+| Existence-leak flags (unauthorized questions) | 0 / 32 |
+| Truncated answers / API errors | 0 / 0 |
+| Latency p50 / p95 | 6.8 s / 11.0 s |
+| Tokens (input / output) | 110,769 / 6,919 |
+
+How to read these numbers:
+
+- **Leaks are checked two ways**: the agent's answer is searched for the protected values and canary phrases (matched by value, so `$U 87.350`, `UYU 87,350` and `U YU 87 350` are the same value), and the documents the retrieval tool handed to the model are compared against the forbidden ones.
+- **Leak rate and false refusal rate must be read together**: a system that refuses everything also has zero leaks.
+- **The only failures are `Q05`, in both languages.** It needs two documents and a calculation. In Spanish the second document was not retrieved with 5 chunks; in English it was retrieved and the model still declined. This is a known limitation.
+- **The first run reported 16 / 28 false refusals (57%) and 3 existence-leak flags.** Auditing each case showed that 14 of the 16 were correct answers marked wrong by the scorer (a space before `%`, a Unicode hyphen in `VAC‑221`, currencies rewritten by the model, paraphrases) and that 2 of the 3 existence flags were the model repeating words from the user's own question. The scorer was fixed with regression tests built from the real model outputs, and the prompt was tightened for reply language, currency notation and refusal wording. The system's retrieval and permission logic were not changed.
+- **Caveats:** the set is small (30 questions and 10 attacks), and the scorer and the prompt were adjusted after seeing results on the same set, so the figures are optimistic for unseen questions. Zero leaks in 52 cases does not prove there are none: with 52 trials the 95% upper bound on the leak rate is about 5.8%. The stronger evidence is structural, since unauthorized content is filtered before retrieval and the matrix test checks all 294 identity and document pairs.
+
+Reproduce it with:
+
+```bash
+uv run python -m app.evaluation.e2e_runner --pause 1
+```
+
+It makes about 80 agent calls and needs `GROQ_API_KEY`. Per-case results, including every answer, are written to `data/e2e_results.json`, and the command exits with a non-zero status if any leak is found. Use `--only attack --limit 2` for a quick check.
 
 ## Current Implementation
 
@@ -149,8 +178,8 @@ End-to-end leakage, false-refusal, and existence-leak measurements against the a
 - Permission-aware vector search using `public_access` and `allowed_roles`.
 - FastMCP retrieval tool with the authenticated user captured server-side.
 - LangChain agent with conversation memory, Groq integration, and LangSmith tracing.
-- Dataset validator and retrieval baseline runner.
-- Automated tests for the backend and security behavior.
+- Dataset validator, retrieval baseline runner, and end-to-end evaluation runner with value-based answer scoring and existence-leak detection.
+- Automated tests for the backend, the scoring logic and the security behavior (162 unit tests plus 9 integration tests).
 
 ## Quickstart
 
@@ -215,6 +244,7 @@ The API is available at `http://127.0.0.1:8000`, with interactive documentation 
 uv run pytest -q                  # unit tests
 uv run pytest -m integration      # needs the seeded database and the ingested index
 uv run python -m app.evaluation.runner
+uv run python -m app.evaluation.e2e_runner --pause 1   # needs GROQ_API_KEY, about 80 agent calls
 ```
 
 ## Known Limitations
@@ -224,12 +254,14 @@ uv run python -m app.evaluation.runner
 - **Shared demo password:** all seeded users share a known password. Do not expose a seeded database publicly.
 - **LangSmith trace data:** traces can include retrieved document content. Use only synthetic data with this configuration.
 - **No persistent audit log:** request and retrieval-decision logging is not implemented.
-- **Evaluation scope:** only retrieval has been measured so far, and only on authorized questions.
+- **Evaluation scope:** 30 questions and 10 attacks. The scorer and the prompt were tuned after seeing results on this same set, so the reported figures are optimistic for unseen questions. A held-out set is still needed.
+- **Heuristic scoring:** numeric facts are matched by value (ignoring currency and unit) and textual facts by word stems, so an answer with the right number for the wrong reason would pass. Existence-leak detection uses a list of phrases and will miss unusual wordings.
+- **Multi-document questions:** `Q05` (two documents plus a calculation) fails in both languages.
 - **No containerized API yet:** Docker Compose currently provides only PostgreSQL.
 
 ## Roadmap
 
-1. Build the end-to-end evaluation runner for the question set and attack scenarios, and report leak rate, false refusals, existence leaks, latency, and cost.
+1. Improve multi-document questions such as `Q05` (retrieval depth and answer synthesis) and evaluate the change on new, held-out questions.
 2. Harden the API: rate limiting, stricter demo-session and login behavior, error handling and timeouts in `/agent/ask`.
 3. Add tests for the MCP tool per identity and for agent error handling.
 4. Containerize the API and add a frontend.
