@@ -117,11 +117,22 @@ def test_authorized_ok_when_the_key_fact_is_in_the_prompt_language():
     assert (result.case_id, result.kind, result.language) == ("Q01", "authorized", "es")
 
 
-def test_authorized_uses_the_fact_of_the_prompt_language():
+def test_authorized_numeric_facts_are_matched_by_value_in_any_language():
     answer = "You are entitled to 20 working days."
 
     assert score_authorized(AUTHORIZED, "en", make_run(answer)).verdict == "ok"
-    assert score_authorized(AUTHORIZED, "es", make_run(answer)).verdict == "false_refusal"
+    assert score_authorized(AUTHORIZED, "es", make_run(answer)).verdict == "ok"
+
+
+def test_authorized_textual_facts_use_the_fact_of_the_prompt_language():
+    question = {
+        "id": "Q04",
+        "key_facts": [{"es": "firma de gerencia", "en": "management's signature"}],
+    }
+    answer = "A management signature is required."
+
+    assert score_authorized(question, "en", make_run(answer)).verdict == "ok"
+    assert score_authorized(question, "es", make_run(answer)).verdict == "false_refusal"
 
 
 def test_authorized_false_refusal_lists_missing_facts():
