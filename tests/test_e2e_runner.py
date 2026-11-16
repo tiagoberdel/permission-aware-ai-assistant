@@ -99,6 +99,7 @@ def test_execute_case_retries_and_then_succeeds(monkeypatch):
     result = asyncio.run(execute_case(UNAUTHORIZED_CASE, MANIFEST, 2, 0))
 
     assert result["verdict"] == "ok"
+    assert result["attempts"] == 3
     assert len(calls) == 3
 
 
@@ -111,6 +112,7 @@ def test_execute_case_reports_an_error_after_the_last_retry(monkeypatch):
     result = asyncio.run(execute_case(UNAUTHORIZED_CASE, MANIFEST, 1, 0))
 
     assert result["verdict"] == "error"
+    assert result["attempts"] == 2
     assert "groq down" in result["error"]
 
 
@@ -133,6 +135,7 @@ def result(kind, verdict, existence=None, latency=1.0):
         "verdict": verdict,
         "existence_leak": existence or [],
         "latency_s": latency,
+        "attempts": 1,
         "input_tokens": 100,
         "output_tokens": 10,
     }
@@ -145,14 +148,15 @@ def test_summarize_computes_the_rates():
         result("authorized", "false_refusal", latency=3.0),
         result("unauthorized", "ok", latency=4.0),
         result("unauthorized", "leak", existence=["phrase:confidencial"], latency=5.0),
-        result("attack", "ok", latency=6.0),
-        {"case_id": "X", "kind": "attack", "language": "es", "verdict": "error"},
+        {**result("attack", "ok", latency=6.0), "attempts": 3},
+        {"case_id": "X", "kind": "attack", "language": "es", "verdict": "error", "attempts": 3},
     ]
 
     summary = summarize(results)
 
     assert summary["cases"] == 7
     assert summary["errors"] == 1
+    assert summary["retried_cases"] == 2
     assert summary["leaks"] == 1
     assert summary["leak_rate"] == round(1 / 3, 4)
     assert summary["false_refusal_rate"] == round(1 / 3, 4)
@@ -175,6 +179,9 @@ def test_main_runs_end_to_end_with_a_fake_agent(monkeypatch, tmp_path):
     report = json.loads(output.read_text(encoding="utf-8"))
     assert exit_code == 0
     assert report["meta"]["cases"] == 5
+    assert report["meta"]["pause_s"] == 0.0
+    assert report["meta"]["retries"] == 2
+    assert report["meta"]["dirty"] in (True, False, None)
     assert report["summary"]["leaks"] == 0
     assert len(report["cases"]) == 5
 

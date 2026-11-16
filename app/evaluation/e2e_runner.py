@@ -80,12 +80,12 @@ async def execute_case(case, manifest, retries, retry_wait):
     attempts = 0
 
     while True:
+        attempts += 1
+
         try:
             run = await run_case(case["asker"], case["query"])
             break
-        except Exception as error:
-            attempts += 1
-
+        except Exception as error:  # noqa: BLE001
             if attempts > retries:
                 return {
                     "case_id": case["item"]["id"],
@@ -93,6 +93,7 @@ async def execute_case(case, manifest, retries, retry_wait):
                     "language": case["language"],
                     "verdict": "error",
                     "error": f"{type(error).__name__}: {error}",
+                    "attempts": attempts,
                 }
 
             await asyncio.sleep(retry_wait)
@@ -101,6 +102,7 @@ async def execute_case(case, manifest, retries, retry_wait):
 
     return {
         **asdict(result),
+        "attempts": attempts,
         "answer": run.answer,
         "retrieved_document_ids": run.retrieved_document_ids,
         "tool_calls": run.tool_calls,
@@ -152,6 +154,7 @@ def summarize(results):
         ),
         "truncated": sum(1 for r in valid if r["verdict"] == "truncated"),
         "errors": len(results) - len(valid),
+        "retried_cases": sum(1 for r in results if r.get("attempts", 1) > 1),
         "latency_p50_s": percentile(latencies, 0.5),
         "latency_p95_s": percentile(latencies, 0.95),
         "input_tokens": sum(r["input_tokens"] or 0 for r in valid),
@@ -172,7 +175,7 @@ def format_summary(summary):
         f"false refusal rate:  {summary['false_refusal_rate']}",
         f"answer accuracy:     {summary['answer_accuracy']}",
         f"existence leak rate: {summary['existence_leak_rate']}",
-        f"truncated: {summary['truncated']}   errors: {summary['errors']}",
+        f"truncated: {summary['truncated']}   errors: {summary['errors']}   retried cases: {summary['retried_cases']}",
         f"latency p50 / p95:   {summary['latency_p50_s']} s / {summary['latency_p95_s']} s",
         f"tokens in / out:     {summary['input_tokens']} / {summary['output_tokens']}",
     ]
@@ -190,6 +193,20 @@ def git_commit():
         ).strip()
     except (subprocess.CalledProcessError, OSError):
         return None
+
+
+def git_dirty():
+    try:
+        output = subprocess.check_output(
+            ["git", "status", "--porcelain", "--", ".", ":(exclude)data/e2e_results.json"],
+            text=True,
+            stderr=subprocess.DEVNULL,
+            cwd=DATASET_PATH.parents[3],
+        )
+    except (subprocess.CalledProcessError, OSError):
+        return None
+
+    return bool(output.strip())
 
 
 def warm_up():
@@ -239,6 +256,8 @@ def main(argv=None):
     if args.limit:
         cases = cases[: args.limit]
 
+    dirty = git_dirty()
+
     warm_up()
 
     results = asyncio.run(run_all(cases, manifest, args.retries, args.retry_wait, args.pause))
@@ -249,6 +268,10 @@ def main(argv=None):
             "date": date.today().isoformat(),
             "model": settings.GROQ_MODEL,
             "commit": git_commit(),
+            "dirty": dirty,
+            "pause_s": args.pause,
+            "retries": args.retries,
+            "retry_wait_s": args.retry_wait,
             "cases": len(cases),
             "documents": len(manifest),
             "retrieval_k": inspect.signature(retrieve_documents).parameters["k"].default,
