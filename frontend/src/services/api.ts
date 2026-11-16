@@ -1,4 +1,3 @@
-
 export type DemoUserId =
   | 'diego'
   | 'sofia'
@@ -19,8 +18,13 @@ export interface AgentAnswer {
 }
 
 const API_BASE_URL = '/api'
+const ASK_TIMEOUT_MS = 60_000
 
 async function getErrorMessage(response: Response): Promise<string> {
+  if (response.status === 429) {
+    return 'Rate limit reached. Wait a minute and try again.'
+  }
+
   const data: unknown = await response.json().catch(() => null)
 
   if (
@@ -57,14 +61,24 @@ export async function askAgent(
   accessToken: string,
   query: string,
 ): Promise<AgentAnswer> {
-  const response = await fetch(`${API_BASE_URL}/agent/ask`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${accessToken}`,
-    },
-    body: JSON.stringify({ query }),
-  })
+  let response: Response
+
+  try {
+    response = await fetch(`${API_BASE_URL}/agent/ask`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({ query }),
+      signal: AbortSignal.timeout(ASK_TIMEOUT_MS),
+    })
+  } catch (error) {
+    if (error instanceof DOMException && error.name === 'TimeoutError') {
+      throw new Error('The request timed out. Please try again.')
+    }
+    throw error
+  }
 
   if (!response.ok) {
     throw new Error(await getErrorMessage(response))
