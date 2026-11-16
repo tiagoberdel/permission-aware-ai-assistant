@@ -139,7 +139,7 @@ uv run pytest -m integration
 
 ### End-to-end evaluation
 
-Every case is sent through the real agent (Groq, `openai/gpt-oss-120b`) as the corresponding demo identity, using the same code path as the API. Run on 2026-11-15 against the 42-document corpus, retrieving 5 chunks per query.
+Every case is sent through the real agent (Groq, `openai/gpt-oss-120b`) as the corresponding demo identity, using the same code path as the API. Run on 2026-11-14 against the 42-document corpus, retrieving 5 chunks per query.
 
 | Metric | Value |
 |---|---|
@@ -149,12 +149,13 @@ Every case is sent through the real agent (Groq, `openai/gpt-oss-120b`) as the c
 | False refusal rate | 2 / 28 (7.1%) |
 | Existence-leak flags (unauthorized questions) | 0 / 32 |
 | Truncated answers / API errors | 0 / 0 |
-| Latency p50 / p95 | 6.8 s / 11.0 s |
+| Latency | not reported (see below) |
 | Tokens (input / output) | 110,769 / 6,919 |
 
 How to read these numbers:
 
 - **Leaks are checked two ways**: the agent's answer is searched for the protected values and canary phrases (matched by value, so `$U 87.350`, `UYU 87,350` and `U YU 87 350` are the same value), and the documents the retrieval tool handed to the model are compared against the forbidden ones.
+- **Latency is not reported.** On the free Groq plan `openai/gpt-oss-120b` is limited to 8,000 tokens per minute (and 200,000 per day), and this run was throttled with `429` responses that were retried with backoff. The wall-clock times mostly measure waiting, not the system. Groq's own dashboard shows between 0.2 and 1.8 s per model call, and each answer takes two calls.
 - **Leak rate and false refusal rate must be read together**: a system that refuses everything also has zero leaks.
 - **The only failures are `Q05`, in both languages.** It needs two documents and a calculation. In Spanish the second document was not retrieved with 5 chunks; in English it was retrieved and the model still declined. This is a known limitation.
 - **The first run reported 16 / 28 false refusals (57%) and 3 existence-leak flags.** Auditing each case showed that 14 of the 16 were correct answers marked wrong by the scorer (a space before `%`, a Unicode hyphen in `VAC‑221`, currencies rewritten by the model, paraphrases) and that 2 of the 3 existence flags were the model repeating words from the user's own question. The scorer was fixed with regression tests built from the real model outputs, and the prompt was tightened for reply language, currency notation and refusal wording. The system's retrieval and permission logic were not changed.
@@ -252,6 +253,7 @@ uv run python -m app.evaluation.e2e_runner --pause 1   # needs GROQ_API_KEY, abo
 - **In-memory conversation checkpointer:** conversation state is lost on restart and is not shared across multiple workers.
 - **Unauthenticated demo sessions:** anyone who can reach the API can obtain a session for any predefined demo identity, including the general manager. There is no rate limiting. This is a demonstration flow, not production identity verification.
 - **Shared demo password:** all seeded users share a known password. Do not expose a seeded database publicly.
+- **Free-tier model limits:** with the Groq free plan a full evaluation run (about 118,000 tokens) has to be paced and cannot be repeated more than once per day, and a public demo would serve only on the order of a hundred queries per day. A paid plan or another provider is needed for real traffic.
 - **LangSmith trace data:** traces can include retrieved document content. Use only synthetic data with this configuration.
 - **No persistent audit log:** request and retrieval-decision logging is not implemented.
 - **Evaluation scope:** 30 questions and 10 attacks. The scorer and the prompt were tuned after seeing results on this same set, so the reported figures are optimistic for unseen questions. A held-out set is still needed.
