@@ -12,6 +12,7 @@ from app.auth.dependencies import (
     get_token_payload,
 )
 from app.auth.jwt import create_access_token
+from app.agent.sessions import register
 from app.models.user import User
 
 def test_get_current_user(db_session):
@@ -144,6 +145,8 @@ def test_demo_session_with_valid_uuid(db_session):
 
     conversation_id = uuid4()
 
+    thread_id = register(user.id, conversation_id)
+
     token = create_access_token(
         user.id,
         session_type="demo",
@@ -157,6 +160,7 @@ def test_demo_session_with_valid_uuid(db_session):
     assert isinstance(demo_session, DemoSession)
     assert demo_session.user.id == user.id
     assert demo_session.conversation_id == conversation_id
+    assert demo_session.thread_id == thread_id
 
 def test_demo_session_rejects_normal_session(db_session):
     user = User(

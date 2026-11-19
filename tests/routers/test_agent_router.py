@@ -4,6 +4,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 import app.routers.agent as agent_router
+from app.agent.sessions import register
 from app.auth.jwt import create_access_token
 from app.db import get_db
 from app.main import app
@@ -13,10 +14,18 @@ from app.services.demo import DEMO_USERS_BY_ID
 @pytest.fixture()
 def demo_token(demo_user):
     conversation_id = uuid4()
-    token = create_access_token(user_id=demo_user.id, session_type="demo", conversation_id=str(conversation_id))
+    thread_id = register(demo_user.id, conversation_id)
+
+    token = create_access_token(
+        user_id=demo_user.id,
+        session_type="demo",
+        conversation_id=str(conversation_id),
+    )
+
     return {
         "access_token": token,
         "conversation_id": str(conversation_id),
+        "thread_id": thread_id,
     }
 
 @pytest.fixture
@@ -62,10 +71,10 @@ def client(db_session):
 def test_ask_agent_success(client, demo_token, demo_user, monkeypatch):
     calls = []
 
-    async def fake_ask_andino(query, user, conversation_id):
-        calls.append((query, user, conversation_id))
+    async def fake_ask_andino(query, user, thread_id):
+        calls.append((query, user, thread_id))
         return "Información encontrada en los documentos."
-
+    
     monkeypatch.setattr(
         agent_router,
         "ask_andino",
@@ -84,11 +93,11 @@ def test_ask_agent_success(client, demo_token, demo_user, monkeypatch):
     assert response.json() == {"answer": "Información encontrada en los documentos."}
     assert len(calls) == 1
 
-    query, user, conversation_id = calls[0]
+    query, user, thread_id = calls[0]
 
     assert query == "Cuál es la política de vacaciones?"
     assert user is demo_user
-    assert conversation_id == demo_token["conversation_id"]
+    assert thread_id == demo_token["thread_id"]
 
 def test_ask_agent_rejects_normal_session(client, normal_token):
     response = client.post(

@@ -18,7 +18,7 @@ async def ask_agent(
     answer = await ask_andino(
         query=data.query,
         user=demo_session.user,
-        conversation_id=str(demo_session.conversation_id),
+        thread_id=demo_session.thread_id,
     )
 
     return AgentAskResponse(answer=answer)

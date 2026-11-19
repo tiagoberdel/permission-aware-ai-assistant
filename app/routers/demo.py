@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from uuid import uuid4
 from sqlalchemy.orm import Session
 
+from app.agent.sessions import register, SessionLimitReached
 from app.auth.jwt import create_access_token
 from app.db import get_db
 from app.limiter import limiter
@@ -25,6 +26,15 @@ def create_demo_session(
             detail="Demo user not found."
         )
     conversation_id = str(uuid4())
+
+    try:
+        register(user.id, conversation_id)
+    except SessionLimitReached:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Demo capacity reached. Please try again later."
+        )
+    
     access_token = create_access_token(
         user_id=user.id,
         session_type="demo",

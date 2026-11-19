@@ -7,6 +7,7 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session
 
+from app.agent.sessions import touch, SessionExpired
 from app.auth.jwt import decode_access_token
 from app.db import get_db
 from app.models.user import User
@@ -17,6 +18,7 @@ bearer_scheme = HTTPBearer()
 class DemoSession:
     user: User
     conversation_id: UUID
+    thread_id: str
 
 
 def get_token_payload(
@@ -106,7 +108,16 @@ def get_demo_session(
             detail="Invalid credentials",
         )
 
+    try:
+        thread_id = touch(user.id, conversation_id)
+    except SessionExpired:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Demo session expired or invalid. Please create a new session.",
+        )
+
     return DemoSession(
         user=user,
         conversation_id=conversation_id,
+        thread_id=thread_id,
     )
