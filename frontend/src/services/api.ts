@@ -1,3 +1,4 @@
+
 export type DemoUserId =
   | 'diego'
   | 'sofia'
@@ -75,8 +76,11 @@ export async function askAgent(
     })
   } catch (error) {
     if (error instanceof DOMException && error.name === 'TimeoutError') {
-      throw new Error('The request timed out. Please try again.')
+      throw new Error('The request timed out. Please try again.', {
+        cause: error,
+      })
     }
+
     throw error
   }
 
