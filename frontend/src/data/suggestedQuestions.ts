@@ -19,7 +19,7 @@ export const PLACEHOLDER_QUESTIONS = [
 const QUESTIONS: SuggestedQuestion[] = [
   {
     id: 'company-values',
-    question: '¿Cuáles son los valores de Andino y qué significan?',
+    question: '¿Qué valores promueve Andino?',
     description: 'Conocé los principios y valores de la empresa',
     relevantRoles: [],
     public: true,
@@ -61,7 +61,6 @@ export function getSuggestedQuestions(
   const hasVisitor = users.some((user) => user.roles.length === 0)
 
   return QUESTIONS.filter((question) => {
-    // Las preguntas públicas aparecen cuando Visitor está seleccionado.
     if (question.public) return hasVisitor
 
     return question.relevantRoles.some(hasRole)
